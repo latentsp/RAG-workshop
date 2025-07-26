@@ -41,6 +41,13 @@ def main():
     # print("\n🎯 Running chunker comparison...")
     # results = do_run_chunker_comparison(chunker_types=['recursive', 'character'])
     
+    # # Question filtering examples
+    # print("\n🎯 Running easy questions only...")
+    # results = run_easy_questions_only()
+    # 
+    # print("\n🎯 Running character questions study...")
+    # results = run_character_questions_study()
+    
     # # Comprehensive parameter study (takes longer)
     # print("\n🎯 Running comprehensive parameter study...")
     # results = do_run_comprehensive_study()
@@ -58,7 +65,42 @@ def run_quick_comparison():
         chunk_overlap=50,
         k=3,
         embedder_type="openai",
-        chunker_type="recursive"
+        chunker_type="recursive",
+        max_questions=5  # Only use first 5 questions for speed
+    )
+    
+    if results:
+        do_analyze_results(results)
+    
+    return results
+
+
+def run_easy_questions_only():
+    """Test with only easy questions to see baseline performance."""
+    print("\n📚 Easy Questions Only Study")
+    print("="*30)
+    
+    results = do_run_parameter_study(
+        chunk_sizes=[500, 1000],
+        difficulties=["easy"],  # Only easy questions
+        max_questions=None  # Use all easy questions
+    )
+    
+    if results:
+        do_analyze_results(results)
+    
+    return results
+
+
+def run_character_questions_study():
+    """Test with only character-related questions."""
+    print("\n👤 Character Questions Study") 
+    print("="*30)
+    
+    results = do_run_parameter_study(
+        chunk_sizes=[200, 500, 1000, 1500],
+        categories=["character"],  # Only character questions
+        max_questions=None
     )
     
     if results:
@@ -159,5 +201,9 @@ if __name__ == "__main__":
     # run_k_value_study() 
     # run_embedder_study()
     # run_chunker_study()
+    
+    # Option 3: Run question filtering studies (uncomment to run)
+    # run_easy_questions_only()
+    # run_character_questions_study()
     
     print("\n✅ Experiments completed!") 

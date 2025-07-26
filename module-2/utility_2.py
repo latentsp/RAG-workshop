@@ -27,21 +27,26 @@ Supported Chunkers:
 - spacy: SpacyTextSplitter (requires spacy)
 
 Example Usage:
-    # Basic parameter study
+    # Basic parameter study (uses default questions)
     results = do_run_parameter_study()
     
-    # Custom parameters
+    # Custom parameters with question filtering
     results = do_run_parameter_study(
         chunk_sizes=[200, 500, 1000],
         chunk_overlap=100,
         k=5,
         embedder_type="anthropic",
-        chunker_type="semantic"
+        chunker_type="semantic",
+        questions_file="custom_questions.json",
+        max_questions=10,
+        categories=["character", "plot"],
+        difficulties=["easy", "medium"]
     )
 """
 
 import os
 import asyncio
+import json
 from dotenv import load_dotenv
 from typing import List, Dict, Tuple, Optional, Union
 import pandas as pd
@@ -59,36 +64,140 @@ if not anthropic_api_key:
     print("⚠️  ANTHROPIC_API_KEY not found in environment. Anthropic embedder will not work.")
 
 
+def do_load_test_questions(questions_file="test_questions.json", max_questions=None, 
+                          categories=None, difficulties=None):
+    """Load test questions from external JSON file with optional filtering."""
+    try:
+        with open(questions_file, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        questions = data.get('questions', [])
+        
+        # Apply filters
+        filtered_questions = []
+        for q in questions:
+            # Filter by categories
+            if categories and q.get('category') not in categories:
+                continue
+            # Filter by difficulties  
+            if difficulties and q.get('difficulty') not in difficulties:
+                continue
+            filtered_questions.append(q)
+        
+        # Limit number of questions
+        if max_questions:
+            filtered_questions = filtered_questions[:max_questions]
+        
+        # Convert to the format expected by the evaluation functions
+        test_data = []
+        for q in filtered_questions:
+            test_data.append({
+                "id": q.get('id'),
+                "question": q.get('question'),
+                "reference": q.get('reference'),
+                "category": q.get('category'),
+                "difficulty": q.get('difficulty')
+            })
+        
+        print(f"✅ Loaded {len(test_data)} questions from {questions_file}")
+        if categories:
+            print(f"🏷️  Filtered by categories: {categories}")
+        if difficulties:
+            print(f"📊 Filtered by difficulties: {difficulties}")
+        
+        for i, item in enumerate(test_data, 1):
+            category = f"[{item.get('category', 'N/A')}]" if item.get('category') else ""
+            difficulty = f"({item.get('difficulty', 'N/A')})" if item.get('difficulty') else ""
+            print(f"🔸 Q{i} {category}{difficulty}: {item['question']}")
+        
+        return test_data
+        
+    except FileNotFoundError:
+        print(f"❌ Questions file '{questions_file}' not found.")
+        print("💡 Creating default questions file...")
+        return do_create_default_questions(questions_file)
+    except json.JSONDecodeError as e:
+        print(f"❌ Error parsing JSON file: {e}")
+        return None
+    except Exception as e:
+        print(f"❌ Error loading questions: {e}")
+        return None
+
+
+def do_create_default_questions(output_file="test_questions.json"):
+    """Create a default questions file if none exists."""
+    default_data = {
+        "document_info": {
+            "title": "Default Alice in Wonderland Test Questions",
+            "description": "Default test questions for RAG evaluation",
+            "source_document": "alice_in_wonderland_book.txt"
+        },
+        "questions": [
+            {
+                "id": 1,
+                "question": "Who is the main character in Alice in Wonderland?",
+                "reference": "The main character in Alice in Wonderland is Alice, a young girl who falls down a rabbit hole into a fantasy world.",
+                "category": "character",
+                "difficulty": "easy"
+            },
+            {
+                "id": 2,
+                "question": "What happens to Alice at the beginning of the story?",
+                "reference": "At the beginning of the story, Alice falls down a rabbit hole while chasing a white rabbit.",
+                "category": "plot",
+                "difficulty": "easy"
+            },
+            {
+                "id": 3,
+                "question": "Who does Alice follow down the rabbit hole?",
+                "reference": "Alice follows a white rabbit down the rabbit hole.",
+                "category": "character",
+                "difficulty": "easy"
+            },
+            {
+                "id": 4,
+                "question": "What kind of world does Alice discover?",
+                "reference": "Alice discovers a fantasy world full of peculiar anthropomorphic creatures.",
+                "category": "setting",
+                "difficulty": "medium"
+            },
+            {
+                "id": 5,
+                "question": "What is the setting of Alice in Wonderland?",
+                "reference": "The setting is a fantasy world called Wonderland, which Alice reaches by falling down a rabbit hole.",
+                "category": "setting",
+                "difficulty": "easy"
+            }
+        ]
+    }
+    
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(default_data, f, indent=2, ensure_ascii=False)
+        print(f"✅ Created default questions file: {output_file}")
+        
+        # Return the questions in the expected format
+        test_data = []
+        for q in default_data['questions']:
+            test_data.append({
+                "id": q.get('id'),
+                "question": q.get('question'),
+                "reference": q.get('reference'),
+                "category": q.get('category'),
+                "difficulty": q.get('difficulty')
+            })
+        
+        return test_data
+        
+    except Exception as e:
+        print(f"❌ Error creating default questions file: {e}")
+        return None
+
+
+# Backward compatibility function
 def do_create_test_dataset():
-    """Create a test dataset with questions and reference answers for accuracy evaluation."""
-    test_data = [
-        {
-            "question": "Who is the main character in Alice in Wonderland?",
-            "reference": "The main character in Alice in Wonderland is Alice, a young girl who falls down a rabbit hole into a fantasy world."
-        },
-        {
-            "question": "What happens to Alice at the beginning of the story?",
-            "reference": "At the beginning of the story, Alice falls down a rabbit hole while chasing a white rabbit."
-        },
-        {
-            "question": "Who does Alice follow down the rabbit hole?",
-            "reference": "Alice follows a white rabbit down the rabbit hole."
-        },
-        {
-            "question": "What kind of world does Alice discover?",
-            "reference": "Alice discovers a fantasy world full of peculiar anthropomorphic creatures."
-        },
-        {
-            "question": "What is the setting of Alice in Wonderland?",
-            "reference": "The setting is a fantasy world called Wonderland, which Alice reaches by falling down a rabbit hole."
-        }
-    ]
-    
-    print(f"✅ Test dataset created with {len(test_data)} question-answer pairs")
-    for i, item in enumerate(test_data, 1):
-        print(f"🔸 Q{i}: {item['question']}")
-    
-    return test_data
+    """Create a test dataset (backward compatibility - now loads from file)."""
+    return do_load_test_questions(max_questions=5)
 
 
 def do_get_embedder(embedder_type="openai"):
@@ -337,10 +446,12 @@ def do_evaluate_with_chunk_size(document_text, chunk_size, test_data, k=3):
 
 
 def do_compare_rag_parameters(document_text, chunk_sizes=[200, 500, 1000, 1500], test_data=None, 
-                             chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive"):
+                             chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive",
+                             questions_file="test_questions.json", max_questions=None, 
+                             categories=None, difficulties=None):
     """Compare RAG accuracy across different parameter configurations."""
     if test_data is None:
-        test_data = do_create_test_dataset()
+        test_data = do_load_test_questions(questions_file, max_questions, categories, difficulties)
     
     print("🏁 Starting RAG parameter comparison study")
     print(f"📊 Testing chunk sizes: {chunk_sizes}")
@@ -398,10 +509,12 @@ def do_compare_chunk_sizes(document_text, chunk_sizes=[200, 500, 1000, 1500], te
                                     chunk_overlap, k, embedder_type, chunker_type)
 
 
-def do_compare_parameters(document_text, test_data=None, parameter_grid=None):
+def do_compare_parameters(document_text, test_data=None, parameter_grid=None, 
+                         questions_file="test_questions.json", max_questions=None, 
+                         categories=None, difficulties=None):
     """Compare RAG accuracy across different parameter combinations."""
     if test_data is None:
-        test_data = do_create_test_dataset()
+        test_data = do_load_test_questions(questions_file, max_questions, categories, difficulties)
     
     if parameter_grid is None:
         parameter_grid = {
@@ -574,7 +687,9 @@ def do_analyze_results(comparison_results):
 # Example usage functions
 def do_run_parameter_study(document_path="../module-1/alice_in_wonderland_book.txt", 
                           chunk_sizes=[200, 500, 1000, 1500, 2000],
-                          chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive"):
+                          chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive",
+                          questions_file="test_questions.json", max_questions=None, 
+                          categories=None, difficulties=None):
     """Run a complete RAG parameter study on the specified document."""
     print("🚀 Starting RAG Parameter Optimization Study")
     print("="*80)
@@ -584,8 +699,8 @@ def do_run_parameter_study(document_path="../module-1/alice_in_wonderland_book.t
     if not document_text:
         return None
     
-    # Create test dataset
-    test_data = do_create_test_dataset()
+    # Load test questions
+    test_data = do_load_test_questions(questions_file, max_questions, categories, difficulties)
     
     # Compare different parameters
     results = do_compare_rag_parameters(
@@ -609,10 +724,13 @@ def do_run_chunk_size_study(document_path="../module-1/alice_in_wonderland_book.
                            chunk_sizes=[200, 500, 1000, 1500, 2000],
                            chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive"):
     """Run a complete chunk size study on the specified document (backward compatibility)."""
-    return do_run_parameter_study(document_path, chunk_sizes, chunk_overlap, k, embedder_type, chunker_type)
+    return do_run_parameter_study(document_path, chunk_sizes, chunk_overlap, k, embedder_type, chunker_type,
+                                 max_questions=5)  # Default to first 5 questions for compatibility
 
 
-def do_run_comprehensive_study(document_path="../module-1/alice_in_wonderland_book.txt"):
+def do_run_comprehensive_study(document_path="../module-1/alice_in_wonderland_book.txt",
+                              questions_file="test_questions.json", max_questions=None, 
+                              categories=None, difficulties=None):
     """Run a comprehensive parameter study comparing multiple configurations."""
     print("🚀 Starting Comprehensive RAG Parameter Study")
     print("="*80)
@@ -622,8 +740,8 @@ def do_run_comprehensive_study(document_path="../module-1/alice_in_wonderland_bo
     if not document_text:
         return None
     
-    # Create test dataset
-    test_data = do_create_test_dataset()
+    # Load test questions
+    test_data = do_load_test_questions(questions_file, max_questions, categories, difficulties)
     
     # Define parameter grid
     parameter_grid = {
@@ -644,7 +762,8 @@ def do_run_comprehensive_study(document_path="../module-1/alice_in_wonderland_bo
 
 
 def do_run_embedder_comparison(document_path="../module-1/alice_in_wonderland_book.txt",
-                              embedder_types=['openai']):
+                              embedder_types=['openai'], questions_file="test_questions.json", 
+                              max_questions=None, categories=None, difficulties=None):
     """Compare different embedder types."""
     print("🚀 Starting Embedder Comparison Study")
     print("="*80)
@@ -654,8 +773,8 @@ def do_run_embedder_comparison(document_path="../module-1/alice_in_wonderland_bo
     if not document_text:
         return None
     
-    # Create test dataset
-    test_data = do_create_test_dataset()
+    # Load test questions
+    test_data = do_load_test_questions(questions_file, max_questions, categories, difficulties)
     
     results = []
     
@@ -683,7 +802,8 @@ def do_run_embedder_comparison(document_path="../module-1/alice_in_wonderland_bo
 
 
 def do_run_chunker_comparison(document_path="../module-1/alice_in_wonderland_book.txt",
-                             chunker_types=['recursive', 'character']):
+                             chunker_types=['recursive', 'character'], questions_file="test_questions.json", 
+                             max_questions=None, categories=None, difficulties=None):
     """Compare different chunker types."""
     print("🚀 Starting Chunker Comparison Study")
     print("="*80)
@@ -693,8 +813,8 @@ def do_run_chunker_comparison(document_path="../module-1/alice_in_wonderland_boo
     if not document_text:
         return None
     
-    # Create test dataset
-    test_data = do_create_test_dataset()
+    # Load test questions
+    test_data = do_load_test_questions(questions_file, max_questions, categories, difficulties)
     
     results = []
     

@@ -1,0 +1,79 @@
+{
+  "document_info": {
+    "title": "Alice in Wonderland Test Questions",
+    "description": "Test questions and reference answers for evaluating RAG performance on Alice in Wonderland",
+    "source_document": "alice_in_wonderland_book.txt"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Who is the main character in Alice in Wonderland?",
+      "reference": "The main character in Alice in Wonderland is Alice, a young girl who falls down a rabbit hole into a fantasy world.",
+      "category": "character",
+      "difficulty": "easy"
+    },
+    {
+      "id": 2,
+      "question": "What happens to Alice at the beginning of the story?",
+      "reference": "At the beginning of the story, Alice falls down a rabbit hole while chasing a white rabbit.",
+      "category": "plot",
+      "difficulty": "easy"
+    },
+    {
+      "id": 3,
+      "question": "Who does Alice follow down the rabbit hole?",
+      "reference": "Alice follows a white rabbit down the rabbit hole.",
+      "category": "character",
+      "difficulty": "easy"
+    },
+    {
+      "id": 4,
+      "question": "What kind of world does Alice discover?",
+      "reference": "Alice discovers a fantasy world full of peculiar anthropomorphic creatures.",
+      "category": "setting",
+      "difficulty": "medium"
+    },
+    {
+      "id": 5,
+      "question": "What is the setting of Alice in Wonderland?",
+      "reference": "The setting is a fantasy world called Wonderland, which Alice reaches by falling down a rabbit hole.",
+      "category": "setting",
+      "difficulty": "easy"
+    },
+    {
+      "id": 6,
+      "question": "What unusual event happens at the Mad Hatter's tea party?",
+      "reference": "At the Mad Hatter's tea party, it's always six o'clock and tea time, creating a never-ending tea party where they constantly move places around the table.",
+      "category": "plot",
+      "difficulty": "medium"
+    },
+    {
+      "id": 7,
+      "question": "Who is the Queen of Hearts and what is she known for?",
+      "reference": "The Queen of Hearts is a tyrannical ruler in Wonderland who is known for constantly shouting 'Off with their heads!' and ordering executions.",
+      "category": "character",
+      "difficulty": "medium"
+    },
+    {
+      "id": 8,
+      "question": "What happens when Alice drinks from the bottle labeled 'Drink Me'?",
+      "reference": "When Alice drinks from the bottle labeled 'Drink Me', she shrinks down to a very small size.",
+      "category": "plot",
+      "difficulty": "easy"
+    },
+    {
+      "id": 9,
+      "question": "What is the Cheshire Cat known for?",
+      "reference": "The Cheshire Cat is known for its distinctive grin and its ability to disappear, often leaving only its smile behind.",
+      "category": "character",
+      "difficulty": "medium"
+    },
+    {
+      "id": 10,
+      "question": "How does Alice eventually wake up from Wonderland?",
+      "reference": "Alice wakes up from Wonderland when her sister gently wakes her up, revealing that her entire adventure was a dream.",
+      "category": "plot",
+      "difficulty": "hard"
+    }
+  ]
+} 

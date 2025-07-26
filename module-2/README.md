@@ -6,6 +6,7 @@ This module focuses on measuring and comparing RAG accuracy with different param
 
 - **`utility-2.py`** - Core utility functions for RAG parameter optimization
 - **`run_experiment.py`** - Experiment runner with predefined studies and custom experiments
+- **`test_questions.json`** - External question bank with categories and difficulty levels
 - **`visualize_results.ipynb`** - Jupyter notebook for visualizing experiment results
 - **`README.md`** - This documentation file
 
@@ -56,17 +57,25 @@ results = do_run_chunker_comparison(
 results = do_run_comprehensive_study()
 ```
 
-### **5. Advanced Analysis:**
+### **5. External Question Bank:**
+- **JSON-based question storage** for easy customization
+- **Question filtering by category** (character, plot, setting)
+- **Difficulty-based filtering** (easy, medium, hard)
+- **Flexible question limits** (test with 5, 10, or all questions)
+- **Custom question files** for different documents
+
+### **6. Advanced Analysis:**
 - **Parameter impact analysis** showing which factors affect accuracy most
 - **Statistical summaries** with mean, std, best/worst configurations
 - **CSV export** with detailed results
 - **Automated best configuration detection**
 
-### **6. Key Functions:**
+### **7. Key Functions:**
 - `do_evaluate_with_params()` - Evaluate with full parameter control
 - `do_compare_rag_parameters()` - Compare different parameter configurations
 - `do_compare_parameters()` - Grid search across parameter combinations
 - `do_run_parameter_study()` - Run complete parameter optimization study
+- `do_load_test_questions()` - Load and filter questions from external JSON file
 - `do_analyze_results()` - Statistical analysis and insights
 - `do_get_embedder()` - Factory for different embedding models
 - `do_create_chunker()` - Factory for different chunking strategies
@@ -83,6 +92,20 @@ results = do_run_parameter_study(
     chunk_sizes=[500],
     chunk_overlap=25,  # vs 50, 100, 150
     k=3
+)
+
+# Test with only easy questions
+results = do_run_parameter_study(
+    chunk_sizes=[200, 500, 1000],
+    difficulties=["easy"],
+    max_questions=None
+)
+
+# Test with character questions only
+results = do_run_parameter_study(
+    chunk_sizes=[500, 1000],
+    categories=["character"],
+    max_questions=5
 )
 
 # Compare semantic vs recursive chunking
@@ -135,6 +158,25 @@ ANTHROPIC_API_KEY=your_anthropic_key_here  # Optional
 
 2. Ensure you have the Alice in Wonderland document at `../module-1/alice_in_wonderland_book.txt`
 
+3. (Optional) Customize the question file `test_questions.json`:
+```json
+{
+  "document_info": {
+    "title": "Your Document Questions",
+    "description": "Custom questions for your document"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "question": "Your question here?",
+      "reference": "Expected answer here",
+      "category": "plot|character|setting|other",
+      "difficulty": "easy|medium|hard"
+    }
+  ]
+}
+```
+
 ## 🎯 **Quick Start:**
 
 ### Method 1: Run Experiments (Recommended)
@@ -150,6 +192,8 @@ python run_experiment.py
 - **`run_k_value_study()`** - Impact of retrieval k values
 - **`run_embedder_study()`** - Compare different embedders
 - **`run_chunker_study()`** - Compare different chunking strategies
+- **`run_easy_questions_only()`** - Test only with easy difficulty questions
+- **`run_character_questions_study()`** - Test only with character-related questions
 
 ### Method 2: Import and Use Functions
 ```python
@@ -219,5 +263,16 @@ This utility demonstrates how different parameters affect RAG accuracy, showing 
 - **Embedder selection** - Comparing different semantic understanding models
 - **Chunking methods** - From simple splitting to semantic-aware chunking
 - **Retrieval parameters** - Optimizing how much context to provide
+- **Question complexity** - How difficulty affects parameter sensitivity
+- **Content categories** - How different types of questions respond to optimization
+
+## 🎯 **Benefits of External Questions:**
+
+- **Flexibility**: Easy to add new questions without code changes
+- **Categorization**: Test specific aspects (plot, characters, settings)
+- **Difficulty scaling**: Compare performance across complexity levels  
+- **Reusability**: Share question sets across different experiments
+- **Workshop customization**: Tailor questions to specific learning objectives
+- **Document adaptation**: Create question sets for different source materials
 
 Perfect for teaching RAG optimization concepts with concrete, measurable results! 🎯 
