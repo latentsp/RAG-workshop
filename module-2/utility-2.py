@@ -27,11 +27,11 @@ Supported Chunkers:
 - spacy: SpacyTextSplitter (requires spacy)
 
 Example Usage:
-    # Basic chunk size study
-    results = do_run_chunk_size_study()
+    # Basic parameter study
+    results = do_run_parameter_study()
     
     # Custom parameters
-    results = do_run_chunk_size_study(
+    results = do_run_parameter_study(
         chunk_sizes=[200, 500, 1000],
         chunk_overlap=100,
         k=5,
@@ -336,13 +336,13 @@ def do_evaluate_with_chunk_size(document_text, chunk_size, test_data, k=3):
     return do_evaluate_with_params(document_text, chunk_size, test_data, k=k)
 
 
-def do_compare_chunk_sizes(document_text, chunk_sizes=[200, 500, 1000, 1500], test_data=None, 
-                          chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive"):
-    """Compare RAG accuracy across different chunk sizes."""
+def do_compare_rag_parameters(document_text, chunk_sizes=[200, 500, 1000, 1500], test_data=None, 
+                             chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive"):
+    """Compare RAG accuracy across different parameter configurations."""
     if test_data is None:
         test_data = do_create_test_dataset()
     
-    print("🏁 Starting chunk size comparison study")
+    print("🏁 Starting RAG parameter comparison study")
     print(f"📊 Testing chunk sizes: {chunk_sizes}")
     print(f"🔧 Parameters: overlap={chunk_overlap}, k={k}, embedder={embedder_type}, chunker={chunker_type}")
     print(f"❓ Number of test questions: {len(test_data)}")
@@ -356,7 +356,7 @@ def do_compare_chunk_sizes(document_text, chunk_sizes=[200, 500, 1000, 1500], te
         results.append(result)
     
     # Create summary
-    print("\n📈 CHUNK SIZE COMPARISON RESULTS")
+    print("\n📈 RAG PARAMETER COMPARISON RESULTS")
     print("="*80)
     
     summary_data = []
@@ -388,6 +388,14 @@ def do_compare_chunk_sizes(document_text, chunk_sizes=[200, 500, 1000, 1500], te
         'summary': summary_data,
         'test_data': test_data
     }
+
+
+# Backward compatibility function
+def do_compare_chunk_sizes(document_text, chunk_sizes=[200, 500, 1000, 1500], test_data=None, 
+                          chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive"):
+    """Compare RAG accuracy across different chunk sizes (backward compatibility)."""
+    return do_compare_rag_parameters(document_text, chunk_sizes, test_data, 
+                                    chunk_overlap, k, embedder_type, chunker_type)
 
 
 def do_compare_parameters(document_text, test_data=None, parameter_grid=None):
@@ -487,7 +495,7 @@ def do_load_document(file_path):
         return None
 
 
-def do_export_results_to_csv(comparison_results, filename="chunk_size_comparison.csv"):
+def do_export_results_to_csv(comparison_results, filename="rag_parameter_results.csv"):
     """Export comparison results to CSV file."""
     if comparison_results and comparison_results.get('summary'):
         df = pd.DataFrame(comparison_results['summary'])
@@ -564,11 +572,11 @@ def do_analyze_results(comparison_results):
 
 
 # Example usage functions
-def do_run_chunk_size_study(document_path="../module-1/alice_in_wonderland_book.txt", 
-                           chunk_sizes=[200, 500, 1000, 1500, 2000],
-                           chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive"):
-    """Run a complete chunk size study on the specified document."""
-    print("🚀 Starting RAG Chunk Size Accuracy Study")
+def do_run_parameter_study(document_path="../module-1/alice_in_wonderland_book.txt", 
+                          chunk_sizes=[200, 500, 1000, 1500, 2000],
+                          chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive"):
+    """Run a complete RAG parameter study on the specified document."""
+    print("🚀 Starting RAG Parameter Optimization Study")
     print("="*80)
     
     # Load document
@@ -579,8 +587,8 @@ def do_run_chunk_size_study(document_path="../module-1/alice_in_wonderland_book.
     # Create test dataset
     test_data = do_create_test_dataset()
     
-    # Compare different chunk sizes
-    results = do_compare_chunk_sizes(
+    # Compare different parameters
+    results = do_compare_rag_parameters(
         document_text, 
         chunk_sizes=chunk_sizes, 
         test_data=test_data,
@@ -591,9 +599,17 @@ def do_run_chunk_size_study(document_path="../module-1/alice_in_wonderland_book.
     )
     
     # Export results
-    do_export_results_to_csv(results, f"chunk_size_study_{embedder_type}_{chunker_type}.csv")
+    do_export_results_to_csv(results, f"rag_parameter_results_{embedder_type}_{chunker_type}.csv")
     
     return results
+
+
+# Backward compatibility function
+def do_run_chunk_size_study(document_path="../module-1/alice_in_wonderland_book.txt", 
+                           chunk_sizes=[200, 500, 1000, 1500, 2000],
+                           chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive"):
+    """Run a complete chunk size study on the specified document (backward compatibility)."""
+    return do_run_parameter_study(document_path, chunk_sizes, chunk_overlap, k, embedder_type, chunker_type)
 
 
 def do_run_comprehensive_study(document_path="../module-1/alice_in_wonderland_book.txt"):
@@ -622,7 +638,7 @@ def do_run_comprehensive_study(document_path="../module-1/alice_in_wonderland_bo
     results = do_compare_parameters(document_text, test_data, parameter_grid)
     
     # Export results
-    do_export_results_to_csv(results, "comprehensive_parameter_study.csv")
+    do_export_results_to_csv(results, "comprehensive_rag_parameter_results.csv")
     
     return results
 
@@ -705,38 +721,4 @@ def do_run_chunker_comparison(document_path="../module-1/alice_in_wonderland_boo
     return results
 
 
-if __name__ == "__main__":
-    # Example usage - uncomment the study you want to run
-    
-    # Basic chunk size study
-    print("🎯 Running basic chunk size study...")
-    results = do_run_chunk_size_study()
-    
-    # Analyze results
-    if results:
-        print("\n📊 Analyzing results...")
-        analysis = do_analyze_results(results)
-    
-    # # Advanced chunk size study with custom parameters
-    # print("\n🎯 Running advanced chunk size study...")
-    # results = do_run_chunk_size_study(
-    #     chunk_sizes=[100, 300, 600, 1200],
-    #     chunk_overlap=75,
-    #     k=5,
-    #     embedder_type="openai",
-    #     chunker_type="recursive"
-    # )
-    
-    # # Embedder comparison (requires additional API keys)
-    # print("\n🎯 Running embedder comparison...")
-    # results = do_run_embedder_comparison(embedder_types=['openai', 'huggingface'])
-    
-    # # Chunker comparison
-    # print("\n🎯 Running chunker comparison...")
-    # results = do_run_chunker_comparison(chunker_types=['recursive', 'character'])
-    
-    # # Comprehensive parameter study (takes longer)
-    # print("\n🎯 Running comprehensive parameter study...")
-    # results = do_run_comprehensive_study()
-    # if results:
-    #     analysis = do_analyze_results(results) 
+ 
