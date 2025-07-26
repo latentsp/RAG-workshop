@@ -12,3 +12,6 @@ wikipedia
 trustcall
 langgraph-cli[inmem]
 chromadb
+pandas
+ragas
+pillow
