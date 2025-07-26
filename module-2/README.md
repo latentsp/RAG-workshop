@@ -6,6 +6,7 @@ This module focuses on measuring and comparing RAG accuracy with different param
 
 - **`utility-2.py`** - Core utility functions for RAG parameter optimization
 - **`run_experiment.py`** - Experiment runner with predefined studies and custom experiments
+- **`visualize_results.ipynb`** - Jupyter notebook for visualizing experiment results
 - **`README.md`** - This documentation file
 
 ## 🚀 **Enhanced Features:**
@@ -192,6 +193,23 @@ Example output:
    Size  500: μ=0.850, σ=0.000, n=1
    Size 1000: μ=0.820, σ=0.000, n=1
 ```
+
+## 📊 **Results Visualization:**
+
+Use the Jupyter notebook to create comprehensive visualizations:
+
+```bash
+jupyter notebook visualize_results.ipynb
+```
+
+**The notebook includes:**
+- **Data overview and statistics** 
+- **Accuracy vs chunk size plots** (line and bar charts)
+- **Chunk count correlation analysis** 
+- **Performance insights and recommendations**
+- **Workshop-ready conclusions with expected patterns**
+
+The visualization automatically loads your CSV results and creates professional charts perfect for workshop presentations!
 
 ## 🎓 **Workshop Applications:**
 

@@ -15,3 +15,5 @@ chromadb
 pandas
 ragas
 pillow
+matplotlib
+seaborn
