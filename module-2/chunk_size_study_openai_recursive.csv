@@ -1,0 +1,6 @@
+Chunk Size,Chunk Overlap,K,Embedder,Chunker,Number of Chunks,Average Accuracy,Total Questions
+200,50,3,openai,recursive,1208,0.6,5
+500,50,3,openai,recursive,452,0.85,5
+1000,50,3,openai,recursive,204,0.8,5
+1500,50,3,openai,recursive,127,0.8,5
+2000,50,3,openai,recursive,91,0.7,5
