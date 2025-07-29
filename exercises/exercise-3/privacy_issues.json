@@ -1,0 +1,403 @@
+[
+    {
+      "description": "Transmitting sensitive information over unencrypted public Wi-Fi networks exposes personal or company data to eavesdroppers who can intercept login credentials and private communications; this risk is especially high when traffic volume and connections per second spike without encryption monitoring.",
+      "severity": "high"
+    },
+    {
+      "description": "Allowing employees to use weak or easily guessable passwords for critical accounts increases the risk of unauthorized access and credential stuffing attacks; password compromise incidents often correlate with unusual authentication attempts per second and elevated login failure rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Not requiring two-factor authentication (2FA) for accessing sensitive systems leaves accounts vulnerable to compromise if passwords are leaked or phished; absence of 2FA can be detected by an unusually low rate of multi-factor challenge responses per authentication session.",
+      "severity": "high"
+    },
+    {
+      "description": "Publishing API keys or secret credentials in public repositories makes it possible for malicious actors to access protected backend systems or data; spikes in API calls per second and request rates can reveal such leaks during traffic volume analysis.",
+      "severity": "high"
+    },
+    {
+      "description": "Storing backup files with sensitive data without any encryption exposes confidential information if physical drives are lost, stolen, or improperly discarded; this vulnerability can be monitored through backup transfer throughput and unauthorized device connection counts per hour.",
+      "severity": "high"
+    },
+    {
+      "description": "Granting all employees access to sensitive customer data, regardless of their role, increases the risk of both accidental and intentional misuse of information; data access events per minute and concurrent sessions metrics help identify over-privileged accounts.",
+      "severity": "high"
+    },
+    {
+      "description": "Relying on outdated software that lacks security updates makes systems vulnerable to exploitation by attackers who target known vulnerabilities; look for spikes in exploit attempts per second and increased traffic volume to unpatched endpoints.",
+      "severity": "medium"
+    },
+    {
+      "description": "Failing to publish or update a privacy policy leaves users unaware of how their data is collected, used, or shared, undermining trust and legal compliance; low web page request rates for the policy page and minimal user engagement metrics can signal this issue.",
+      "severity": "medium"
+    },
+    {
+      "description": "Permitting unrestricted use of USB drives on company computers can result in data theft or malware infections through unauthorized or compromised devices; monitor USB connection counts per hour and data transfer volume for anomalies.",
+      "severity": "medium"
+    },
+    {
+      "description": "Allowing browsers to save passwords in plain text or without strong encryption can lead to credential theft if the device is compromised; abnormal increases in local storage read/write operations or password retrieval events per minute may indicate this risk.",
+      "severity": "medium"
+    },
+    {
+      "description": "Leaving known security vulnerabilities unpatched exposes systems to exploitation and increases the likelihood of a data breach; increased scanning attempts per second and unusual traffic volume to vulnerable services are key indicators.",
+      "severity": "high"
+    },
+    {
+      "description": "Collecting excessive personal data from users that is not necessary for service provision increases the risk of privacy violations if breached; track form submission volumes and data field usage per request to detect over-collection.",
+      "severity": "medium"
+    },
+    {
+      "description": "Failing to change default usernames and passwords on devices and applications makes it easy for attackers to gain unauthorized access; monitor failed login attempts per second against default credentials to identify such exposures.",
+      "severity": "high"
+    },
+    {
+      "description": "Storing user data without encryption at rest allows anyone with physical or administrative access to view sensitive information; disk read throughput and unauthorized file access counts per minute can help detect unencrypted data exposure.",
+      "severity": "high"
+    },
+    {
+      "description": "Transmitting sensitive data without encryption in transit makes it vulnerable to interception by attackers during transfer; monitoring TLS handshake failures per second and cleartext traffic volume helps uncover this issue.",
+      "severity": "high"
+    },
+    {
+      "description": "Having no clear data retention policy means personal data may be kept indefinitely, increasing exposure in the event of a breach; retention growth rates and storage volume metrics per week can highlight compliance gaps.",
+      "severity": "medium"
+    },
+    {
+      "description": "Improper disposal of hardware, such as failing to wipe hard drives before discarding, can result in data leaks from discarded devices; track decommissioned device counts per month and data wipe completion rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Lack of log monitoring allows unauthorized access or suspicious activity to go undetected within critical systems; low log ingestion rates and minimal alert triggers per hour can signal this deficiency.",
+      "severity": "medium"
+    },
+    {
+      "description": "Not requesting or recording user consent before placing cookies on their devices undermines user privacy and regulatory compliance; cookie banner display counts versus acceptance events per session can indicate missing consent flows.",
+      "severity": "medium"
+    },
+    {
+      "description": "Tracking user activity online without explicit consent raises serious privacy concerns and can breach legal regulations; spikes in pageview tracking events per second and analytics collection volume should be audited.",
+      "severity": "high"
+    },
+    {
+      "description": "Requesting access to device cameras or microphones without clear disclosure or consent can result in unauthorized recordings of private activities; monitor media device access events per session and connection initiation rates.",
+      "severity": "high"
+    },
+    {
+      "description": "Storing sensitive data in public or poorly secured cloud storage increases the chance of unauthorized access by external parties; unusual storage request rates and public bucket access metrics per hour signal exposure.",
+      "severity": "high"
+    },
+    {
+      "description": "Leaving web server directories openly accessible allows attackers to browse, download, or tamper with files not meant for public viewing; directory listing request volume and 404 error rate per second are key metrics to watch.",
+      "severity": "medium"
+    },
+    {
+      "description": "Allowing users to reuse passwords across different systems increases the risk of widespread account compromise if one account is breached; measure password reuse attempts per user and cross-system login rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Devices lacking secure boot can be tampered with to load malicious software at startup, threatening the privacy of data stored or processed; unusual firmware load attempts per minute and boot time deviations should be monitored.",
+      "severity": "medium"
+    },
+    {
+      "description": "Storing and sharing raw data without anonymizing or pseudonymizing personal details risks direct identification of individuals if leaked; track dataset download volume and record access counts per user.",
+      "severity": "high"
+    },
+    {
+      "description": "Sending sensitive business or personal information over unencrypted email exposes it to interception or unauthorized reading; monitor email transmission rates, TLS usage, and cleartext email volume.",
+      "severity": "medium"
+    },
+    {
+      "description": "Sharing user data with third-party partners or vendors without proper consent or contracts can lead to unexpected data misuse; measure data export volume and API call counts to external domains per minute.",
+      "severity": "high"
+    },
+    {
+      "description": "Allowing remote access to critical systems without adequate monitoring or restrictions can enable unauthorized intrusions and data theft; track remote login attempts per second and session duration anomalies.",
+      "severity": "high"
+    },
+    {
+      "description": "Not keeping access logs prevents investigation and identification of unauthorized access or potential data breaches; low log retention volumes and alert counts per day are signals of this gap.",
+      "severity": "medium"
+    },
+    {
+      "description": "Oversharing personal information on social media, such as birth dates and locations, can make users more vulnerable to social engineering attacks; social post frequency and metadata exposure rates per post should be reviewed.",
+      "severity": "low"
+    },
+    {
+      "description": "Relying on weak or easily guessed security questions as part of account recovery makes it easier for attackers to gain account access; monitor recovery attempts per user and question failure rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Collecting and sharing location data from user devices without explicit and informed consent can lead to tracking and privacy invasion; track GPS coordinate transmissions per session and location request counts.",
+      "severity": "high"
+    },
+    {
+      "description": "Lack of device lockout mechanisms allows unauthorized users to access sensitive data on lost or unattended devices; measure failed unlock attempts per hour and auto-lock activation frequency.",
+      "severity": "medium"
+    },
+    {
+      "description": "Transferring files without using secure file transfer protocols can expose sensitive data to interception during transmission; monitor SFTP versus FTP usage counts and unencrypted transfer volume.",
+      "severity": "medium"
+    },
+    {
+      "description": "Embedding confidential information in file metadata, such as document author or editing history, can unintentionally expose private details when shared; track metadata extraction requests per file and abnormal read/write rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Not conducting regular security audits can result in unnoticed vulnerabilities or privacy gaps within company systems; low audit frequency and minimal vulnerability scan counts per quarter highlight this risk.",
+      "severity": "medium"
+    },
+    {
+      "description": "Connecting insecure Internet of Things (IoT) devices to corporate networks exposes sensitive environments to potential remote attacks; monitor device connection volume per second and unrecognized device join rates.",
+      "severity": "high"
+    },
+    {
+      "description": "Including sensitive information, such as session IDs or user details, in URL parameters may inadvertently expose data through browser history or logs; track URL parameter usage counts and referer header volumes.",
+      "severity": "medium"
+    },
+    {
+      "description": "Allowing remote employees to access company systems without requiring VPN use exposes internal networks to external threats; measure VPN connection rates per minute versus direct access attempts.",
+      "severity": "high"
+    },
+    {
+      "description": "Displaying sensitive information on shared screens or public monitors risks unauthorized viewing by bystanders; monitor screen share session counts and average view duration per session.",
+      "severity": "medium"
+    },
+    {
+      "description": "Falling victim to phishing attacks, such as clicking on malicious links or opening dangerous attachments, can compromise personal or corporate data; track phishing email click-through rates and report counts per day.",
+      "severity": "medium"
+    },
+    {
+      "description": "Installing unapproved applications on company devices can introduce malware or lead to unauthorized data access; monitor application install events per device and unrecognized app launch rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Failure to provide privacy awareness training to employees increases the likelihood of unintentional breaches or risky behaviors; low training completion rates and minimal quiz participation per cohort are red flags.",
+      "severity": "medium"
+    },
+    {
+      "description": "Leaving inactive or terminated user accounts enabled can allow former employees or attackers to access internal systems; track account deactivation delays and inactive login counts per month.",
+      "severity": "medium"
+    },
+    {
+      "description": "Storing confidential physical documents in unlocked cabinets or open offices risks loss or theft by unauthorized individuals; measure cabinet access counts per day and unauthorized entry attempts per hour.",
+      "severity": "medium"
+    },
+    {
+      "description": "Retaining outdated or unnecessary personal data increases exposure in the event of a breach and complicates compliance with data minimization requirements; monitor data retention volume growth and record age distribution.",
+      "severity": "medium"
+    },
+    {
+      "description": "Lacking a formal breach notification process results in delays or failures to inform users about incidents affecting their data privacy; measure notification delay times and incident response counts per quarter.",
+      "severity": "high"
+    },
+    {
+      "description": "Failing to enable or enforce encryption on mobile devices used for work puts sensitive data at risk if devices are lost or stolen; track device encryption status rates and unauthorized data access attempts per device.",
+      "severity": "high"
+    },
+    {
+      "description": "Transferring data across international borders without proper safeguards or legal agreements can violate privacy laws and expose data to foreign surveillance; monitor cross-border traffic volume and external endpoint connection counts.",
+      "severity": "high"
+    },
+    {
+      "description": "Not restricting system or data access based on employee roles leads to excessive access privileges and increases breach risk; track role change events per user and concurrent permission elevation counts.",
+      "severity": "high"
+    },
+    {
+      "description": "Operating without a Data Loss Prevention (DLP) system allows sensitive data to leave the organization unnoticed through emails, uploads, or removable drives; measure DLP event capture rates and blocked transfer volume.",
+      "severity": "high"
+    },
+    {
+      "description": "Setting online calendar events as public by default may inadvertently expose meeting details or participants’ identities; monitor public event creation counts per week and participant list access rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Failing to regularly review user access rights increases the chance that unauthorized personnel retain access to sensitive information; track access review frequency and stale permission counts per cycle.",
+      "severity": "medium"
+    },
+    {
+      "description": "Inadequately classifying data types, such as treating confidential and public data the same, increases risk of accidental disclosure; measure classification event counts and misclassification rates per dataset.",
+      "severity": "medium"
+    },
+    {
+      "description": "Lacking an incident response plan hinders effective management and containment of data privacy breaches when they occur; monitor incident drill frequency and response time metrics per incident.",
+      "severity": "high"
+    },
+    {
+      "description": "Processing payment transactions without using secure, encrypted channels exposes financial data to interception and fraud; track payment gateway request volume and TLS handshake success rates.",
+      "severity": "high"
+    },
+    {
+      "description": "Embedding third-party tracking pixels on websites without user awareness allows external entities to monitor user behavior across sites; measure pixel load events per pageview and third-party request volume.",
+      "severity": "medium"
+    },
+    {
+      "description": "Not providing parental control options on apps or websites aimed at children can lead to exposure of minors to inappropriate content or data misuse; monitor feature enablement rates and blocked content request counts.",
+      "severity": "medium"
+    },
+    {
+      "description": "Leaving Bluetooth connections open and discoverable makes devices more susceptible to unauthorized pairing and data interception; measure Bluetooth scan events per minute and unauthorized pairing attempts.",
+      "severity": "medium"
+    },
+    {
+      "description": "Collecting or processing biometric data, such as fingerprints or facial recognition, without explicit user consent presents major privacy risks and legal liabilities; track biometric capture counts and consent event rates.",
+      "severity": "high"
+    },
+    {
+      "description": "Requesting overly broad permissions on mobile apps, such as access to contacts, messages, or location, can enable excessive and unnecessary data collection; monitor permission grant counts and data usage volume per permission.",
+      "severity": "high"
+    },
+    {
+      "description": "Storing data in unsecured or poorly maintained physical locations, such as unlocked server rooms, increases the risk of unauthorized access; measure room entry events per hour and unauthorized access alarms.",
+      "severity": "high"
+    },
+    {
+      "description": "Not verifying the integrity of stored or transmitted data can allow tampering or corruption to go undetected; track checksum failure rates and data integrity verification event counts.",
+      "severity": "medium"
+    },
+    {
+      "description": "Leaving access tokens or session cookies unprotected in local storage allows attackers to impersonate users if a device is compromised; monitor token usage counts per session and unauthorized token replay attempts.",
+      "severity": "high"
+    },
+    {
+      "description": "Failing to perform privacy impact assessments before launching new products or services can result in overlooked risks and regulatory breaches; measure PIA completion rates and identified issue counts per project.",
+      "severity": "medium"
+    },
+    {
+      "description": "Allowing uncontrolled use of portable storage devices, such as USB drives, raises the risk of data loss, theft, or malware introduction; monitor portable device connection rates and file transfer volume per device.",
+      "severity": "medium"
+    },
+    {
+      "description": "Not deploying a secure email gateway leaves organizations exposed to phishing, spam, and malware-laden emails; track email filtering rates and malicious message counts per day.",
+      "severity": "medium"
+    },
+    {
+      "description": "Configuring access rights incorrectly, such as granting admin privileges to regular users, makes it easier for attackers to escalate privileges and access sensitive data; measure privilege change events and unauthorized privilege use per hour.",
+      "severity": "high"
+    },
+    {
+      "description": "Employees using unapproved cloud services (shadow IT) can store company data in insecure environments without oversight; monitor external cloud API call volume and unknown service usage rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Not clearly communicating how user data is collected, processed, and shared leads to lack of transparency and potential distrust; track privacy page visit counts and user feedback submission rates.",
+      "severity": "high"
+    },
+    {
+      "description": "Sharing sensitive data with third-party vendors or service providers without proper vetting can result in uncontrolled data dissemination; measure vendor data exchange volume and contract compliance checks per quarter.",
+      "severity": "high"
+    },
+    {
+      "description": "Inadequate procedures for verifying user identity before disclosing personal information can lead to unauthorized data disclosure; monitor identity verification attempts per minute and failure rates.",
+      "severity": "high"
+    },
+    {
+      "description": "Not having a policy for lost or stolen devices may delay action and increase the risk of data exposure; track incident reports per lost device and policy enforcement metrics.",
+      "severity": "medium"
+    },
+    {
+      "description": "Retaining more personal data than necessary for business operations or legal compliance increases risk if breached; monitor data minimization compliance rates and storage volume per data category.",
+      "severity": "medium"
+    },
+    {
+      "description": "Failing to properly secure cookies, such as not marking them as HttpOnly or Secure, increases risk of session hijacking; track cookie flag setting rates and hijack attempt counts.",
+      "severity": "medium"
+    },
+    {
+      "description": "Allowing remote desktop access without requiring strong authentication or limiting access to known IP addresses exposes internal systems to attack; measure RDP connection attempts per second and failed authentication rates.",
+      "severity": "high"
+    },
+    {
+      "description": "Voice assistant devices recording audio conversations without clearly informing users can violate privacy expectations in private spaces; track microphone activation counts and recording duration metrics.",
+      "severity": "high"
+    },
+    {
+      "description": "Relying on insecure or outdated software dependencies within applications increases the risk of vulnerabilities that could lead to data leaks; monitor dependency vulnerability scan rates and outdated library usage counts.",
+      "severity": "medium"
+    },
+    {
+      "description": "Not providing users with a way to export or delete their personal data makes it harder to comply with data protection laws and user rights; track data export request volumes and deletion completion rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Susceptibility to social engineering, such as staff giving out information over the phone without verification, can lead to data leaks; measure incident report rates per social engineering attempt and call volume anomalies.",
+      "severity": "medium"
+    },
+    {
+      "description": "Transferring confidential data over unsecured channels, such as FTP or HTTP, exposes it to interception and unauthorized access; monitor transfer protocol usage counts and unencrypted data volume per day.",
+      "severity": "high"
+    },
+    {
+      "description": "Setting file sharing or collaboration platforms to public by default may result in unintended data exposure to unauthorized users; track public share link creation rates and download counts per link.",
+      "severity": "medium"
+    },
+    {
+      "description": "Deploying camera surveillance in workplaces without adequate notice or policies can violate employee privacy rights; monitor camera activation events per hour and recorded footage access counts.",
+      "severity": "high"
+    },
+    {
+      "description": "Failing to physically secure servers, such as leaving data centers unlocked, makes it easy for intruders to access hardware and stored data; measure door access event counts and unauthorized entry alarms.",
+      "severity": "high"
+    },
+    {
+      "description": "Allowing installation of software updates from unverified sources may introduce malware or backdoors that compromise data; track update origin verification failure rates and untrusted package installation events.",
+      "severity": "medium"
+    },
+    {
+      "description": "Using customer contact information for purposes other than originally stated, such as unsolicited marketing, breaches user trust and privacy expectations; monitor email send volumes and unsubscribe rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Not providing regular security training for employees increases the risk that staff will inadvertently compromise data privacy; track training enrollment rates and phishing simulation failure counts.",
+      "severity": "medium"
+    },
+    {
+      "description": "Failing to assign clear data ownership and responsibility can cause confusion and increase the chance of data privacy oversights; measure ownership assignment completion rates and unresolved incident counts.",
+      "severity": "medium"
+    },
+    {
+      "description": "Allowing password recovery processes that can be bypassed with publicly available information (such as birthdates) exposes accounts to takeover; monitor recovery event counts and bypass attempt rates.",
+      "severity": "high"
+    },
+    {
+      "description": "Integrating third-party apps into core systems without sufficient review can introduce privacy risks through uncontrolled data sharing; track integration request volumes and review completion rates.",
+      "severity": "medium"
+    },
+    {
+      "description": "Using instant messaging tools that do not encrypt communications end-to-end exposes conversations to interception; measure message send rates and unencrypted payload volume.",
+      "severity": "medium"
+    },
+    {
+      "description": "Failing to comply with GDPR or other relevant privacy regulations can result in legal penalties and significant data privacy violations; monitor compliance audit counts and violation incident rates.",
+      "severity": "high"
+    },
+    {
+      "description": "Allowing use of analytics tools that collect more data than necessary without informing users can breach privacy expectations and laws; track analytics event volume per user and data retention durations.",
+      "severity": "medium"
+    },
+    {
+      "description": "Recording phone calls or video conferences without notifying participants can violate laws and individual privacy rights; measure recording start counts per session and consent event rates.",
+      "severity": "high"
+    },
+    {
+      "description": "Allowing employees to use personal devices for business communications and data storage without enforcing security controls can result in company data loss; monitor bring-your-own-device connection counts and policy violation events.",
+      "severity": "medium"
+    },
+    {
+      "description": "Not providing privacy settings for users to control visibility of their data or activity can expose information more broadly than intended; track setting change counts and default visibility metrics.",
+      "severity": "medium"
+    },
+    {
+      "description": "Sending marketing emails to users who have not opted in or who have withdrawn consent breaches privacy and may violate regulations; measure opt-in rates and complaint counts per campaign.",
+      "severity": "medium"
+    },
+    {
+      "description": "Sharing user data with law enforcement without legal process or transparency can erode user trust and privacy; monitor lawful request volumes and transparency report counts.",
+      "severity": "high"
+    },
+    {
+      "description": "Storing archives or backups containing sensitive data in insecure locations increases the likelihood of unauthorized access; track archive mount events and access logs per backup instance.",
+      "severity": "high"
+    }
+  ]
+  

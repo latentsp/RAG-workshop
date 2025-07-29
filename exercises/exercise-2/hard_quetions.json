@@ -1,0 +1,355 @@
+[
+    {
+      "question": "How does Alice rationalize her potential misidentification of the Antipodes?",
+      "reference_points": [
+        "“I wonder if I shall fall right through the earth! How funny it’ll seem to come out among the people that walk with their heads downward! The Antipathies, I think—”",
+        "(she was rather glad there was no one listening, this time, as it didn’t sound at all the right word)"
+      ],
+      "answer": "Alice first misidentifies the people at the Antipodes as 'the Antipathies.' She immediately suspects this is the wrong word and is glad no one is around to hear her mistake."
+    },
+    {
+      "question": "What are the specific historical figures and the archbishop mentioned in the 'dry' history lesson recited by the Mouse?",
+      "reference_points": [
+        "‘William the Conqueror, whose cause was favoured by the pope, was soon submitted to by the English, who wanted leaders, and had been of late much accustomed to usurpation and conquest. Edwin and Morcar, the earls of Mercia and Northumbria—’",
+        "‘—found it advisable to go with Edgar Atheling to meet William and offer him the crown.'",
+        "‘and even Stigand, the patriotic archbishop of Canterbury, found it advisable—’"
+      ],
+      "answer": "The Mouse's history lesson mentions William the Conqueror, Edwin and Morcar (the earls of Mercia and Northumbria), Edgar Atheling, and Stigand, the archbishop of Canterbury."
+    },
+    {
+      "question": "After the Caucus-race, what item does Alice distribute as prizes, and what object does she receive as her own prize?",
+      "reference_points": [
+        "Alice had no idea what to do, and in despair she put her hand in her pocket, and pulled out a box of comfits, (luckily the salt water had not got into it), and handed them round as prizes.",
+        "“What else have you got in your pocket?” he went on, turning to Alice.",
+        "“Only a thimble,” said Alice sadly.",
+        "Then they all crowded round her once more, while the Dodo solemnly presented the thimble, saying “We beg your acceptance of this elegant thimble;”"
+      ],
+      "answer": "Alice distributes a box of comfits from her pocket as prizes for everyone else. As her own prize, the Dodo takes her thimble and solemnly presents it back to her."
+    },
+    {
+      "question": "What is the full name engraved on the White Rabbit's brass door plate, and what is the name he mistakenly calls Alice?",
+      "reference_points": [
+        "As she said this, she came upon a neat little house, on the door of which was a bright brass plate with the name “W. RABBIT,” engraved upon it.",
+        "Very soon the Rabbit noticed Alice, as she went hunting about, and called out to her in an angry tone, “Why, Mary Ann, what _are_ you doing out here? Run home this moment, and fetch me a pair of gloves and a fan! Quick, now!”"
+      ],
+      "answer": "The name on the door plate is \"W. RABBIT.\" The Rabbit mistakenly calls Alice \"Mary Ann\" and orders her to run his errands."
+    },
+    {
+      "question": "According to the voices outside the Rabbit's house, who is ultimately tasked with going down the chimney, and how does he describe his subsequent expulsion by Alice's kick?",
+      "reference_points": [
+        "“Who’s to go down the chimney?—Nay, _I_ shan’t! _You_ do it!—_That_ I won’t, then!—Bill’s to go down—Here, Bill! the master says you’re to go down the chimney!”",
+        "Last came a little feeble, squeaking voice, (“That’s Bill,” thought Alice,) “Well, I hardly know—No more, thank ye; I’m better now—but I’m a deal too flustered to tell you—all I know is, something comes at me like a Jack-in-the-box, and up I goes like a sky-rocket!”"
+      ],
+      "answer": "Bill the Lizard is chosen to go down the chimney. He describes the experience of being kicked out by Alice's foot as \"something comes at me like a Jack-in-the-box, and up I goes like a sky-rocket!\""
+    },
+    {
+      "question": "What is the exact height of the Caterpillar, and what is the reason for his anger when Alice complains about being three inches tall?",
+      "reference_points": [
+        "“Well, I should like to be a _little_ larger, sir, if you wouldn’t mind,” said Alice: “three inches is such a wretched height to be.”",
+        "“It is a very good height indeed!” said the Caterpillar angrily, rearing itself upright as it spoke (it was exactly three inches high)."
+      ],
+      "answer": "The Caterpillar is exactly three inches high. He becomes angry because Alice calls three inches a 'wretched height,' which is his own height, making her complaint a personal insult."
+    },
+    {
+      "question": "According to the Hatter, why is it always six o'clock at the tea-party, and what specific transgression against Time caused this situation?",
+      "reference_points": [
+        "“We quarrelled last March—just before _he_ went mad, you know—” (pointing with his tea spoon at the March Hare,) “—it was at the great concert given by the Queen of Hearts, and I had to sing 'Twinkle, twinkle, little bat! How I wonder what you’re at!'”",
+        "“Well, I’d hardly finished the first verse,” said the Hatter, “when the Queen jumped up and bawled out, ‘He’s murdering the time! Off with his head!’”",
+        "“And ever since that,” the Hatter went on in a mournful tone, “he won’t do a thing I ask! It’s always six o’clock now.”"
+      ],
+      "answer": "It is always six o'clock (tea-time) because the Hatter had a quarrel with Time. During a concert, while the Hatter was singing, the Queen of Hearts accused him of 'murdering the time.' Offended, Time has since refused to do anything the Hatter asks and remains perpetually fixed at six o'clock."
+    },
+    {
+      "question": "In the Dormouse's story about the three sisters in the well, what subject, beginning with a specific letter, were they learning to draw, and what were four examples of what they drew?",
+      "reference_points": [
+        "“And so these three little sisters—they were learning to draw, you know—”",
+        "“and they drew all manner of things—everything that begins with an M—”",
+        "“Why with an M?” said Alice.",
+        "“—that begins with an M, such as mouse-traps, and the moon, and memory, and muchness—you know you say things are “much of a muchness”—did you ever see such a thing as a drawing of a muchness?”"
+      ],
+      "answer": "The three sisters were learning to draw everything that begins with the letter 'M'. The four examples given are mouse-traps, the moon, memory, and muchness."
+    },
+    {
+      "question": "For what specific offense was the Duchess placed under a sentence of execution?",
+      "reference_points": [
+        "She was walking by the White Rabbit, who was peeping anxiously into her face. “Very,” said Alice: “—where’s the Duchess?”",
+        "“Hush! Hush!” said the Rabbit in a low, hurried tone. He looked anxiously over his shoulder as he spoke, and then raised himself upon tiptoe, put his mouth close to her ear, and whispered “She’s under sentence of execution.”",
+        "“What for?” said Alice.",
+        "“She boxed the Queen’s ears—” the Rabbit began."
+      ],
+      "answer": "The White Rabbit whispers to Alice that the Duchess is under sentence of execution because she \"boxed the Queen's ears.\""
+    },
+    {
+      "question": "What are the four pun-based, fictitious academic subjects that the Mock Turtle claims were part of his 'regular course' at school in the sea?",
+      "reference_points": [
+        "“I only took the regular course.”",
+        "“What was that?” inquired Alice.",
+        "“Reeling and Writhing, of course, to begin with,” the Mock Turtle replied; “and then the different branches of Arithmetic—Ambition, Distraction, Uglification, and Derision.”"
+      ],
+      "answer": "The four pun-based subjects were Reeling and Writhing (from Reading and Writing) and the different branches of Arithmetic: Ambition, Distraction, Uglification, and Derision (from Addition, Subtraction, Multiplication, and Division)."
+    },
+    {
+      "question": "During the trial of the Knave of Hearts, what is the King's 'Rule Forty-two,' and on what logical grounds does Alice object to it?",
+      "reference_points": [
+        "At this moment the King, who had been for some time busily writing in his note-book, cackled out “Silence!” and read out from his book, “Rule Forty-two. _All persons more than a mile high to leave the court_.”",
+        "“Well, I shan’t go, at any rate,” said Alice: “besides, that’s not a regular rule: you invented it just now.”",
+        "“It’s the oldest rule in the book,” said the King.",
+        "“Then it ought to be Number One,” said Alice."
+      ],
+      "answer": "The King's 'Rule Forty-two' states, 'All persons more than a mile high to leave the court.' Alice objects first by stating it is not a regular rule and that the King just invented it. When the King claims it is the oldest rule in the book, she counters with the logical argument that if it were the oldest, it should be 'Number One,' not Forty-two."
+    },
+    {
+      "question": "What is the logical chain of reasoning Alice uses to conclude that if she falls into the sea, she can return home by railway?",
+      "reference_points": [
+        "Her first idea was that she had somehow fallen into the sea, “and in that case I can go back by railway,” she said to herself.",
+        "(Alice had been to the seaside once in her life, and had come to the general conclusion, that wherever you go to on the English coast you find a number of bathing machines in the sea, some children digging in the sand with wooden spades, then a row of lodging houses, and behind them a railway station.)"
+      ],
+      "answer": "Alice has a general conclusion from a single seaside visit that every part of the English coast has a predictable layout: bathing machines, children on the sand, lodging houses, and behind them, a railway station. Therefore, if she is in the sea, she must be at the coast, and a railway station must be nearby."
+    },
+    {
+      "question": "What two distinct, non-magical items, when interacted with, directly cause Alice to shrink?",
+      "reference_points": [
+        "she soon found out that the cause of this was the fan she was holding, and she dropped it hastily, just in time to avoid shrinking away altogether.",
+        "Alice noticed with some surprise that the pebbles were all turning into little cakes as they lay on the floor, and a bright idea came into her head.",
+        "So she swallowed one of the cakes, and was delighted to find that she began shrinking directly."
+      ],
+      "answer": "The two non-magical items that cause Alice to shrink are the White Rabbit's fan, which she holds, and the pebbles thrown into the house, which turn into cakes that she eats."
+    },
+    {
+      "question": "What is the farmer's dog's stated monetary value, and what primary pest-control skill is mentioned as the reason for its usefulness?",
+      "reference_points": [
+        "and it belongs to a farmer, you know, and he says it’s so useful, it’s worth a hundred pounds!",
+        "He says it kills all the rats and—oh dear!” cried Alice in a sorrowful tone, “I’m afraid I’ve offended it again!”"
+      ],
+      "answer": "The farmer's dog is valued at one hundred pounds, and its primary skill justifying this value is that it \"kills all the rats.\""
+    },
+    {
+      "question": "Describe the specific disagreement between the Lory and Alice, and the unresolved reason the Lory gives for its authority.",
+      "reference_points": [
+        "Indeed, she had quite a long argument with the Lory, who at last turned sulky, and would only say, “I am older than you, and must know better;”",
+        "and this Alice would not allow without knowing how old it was, and, as the Lory positively refused to tell its age, there was no more to be said."
+      ],
+      "answer": "The Lory and Alice have a long argument that ends when the Lory asserts its authority by claiming, \"I am older than you, and must know better.\" Alice refuses to accept this without knowing the Lory's age, but the Lory refuses to tell her, ending the discussion without resolution."
+    },
+    {
+      "question": "What specific item of clothing and accessory does the White Rabbit drop, and what reason does he mutter for his extreme hurry?",
+      "reference_points": [
+        "It was the White Rabbit returning, splendidly dressed, with a pair of white kid gloves in one hand and a large fan in the other:",
+        "he came trotting along in a great hurry, muttering to himself as he came, “Oh! the Duchess, the Duchess! Oh! won’t she be savage if I’ve kept her waiting!”",
+        "The Rabbit started violently, dropped the white kid gloves and the fan, and skurried away into the darkness as hard as he could go."
+      ],
+      "answer": "The White Rabbit drops a pair of white kid gloves and a large fan. He is in a great hurry because he fears the Duchess will be 'savage' if he has kept her waiting."
+    },
+    {
+      "question": "What is the Rabbit's companion's name and stated activity when the Rabbit finds him near the cucumber frames?",
+      "reference_points": [
+        "Next came an angry voice—the Rabbit’s—“Pat! Pat! Where are you?”",
+        "And then a voice she had never heard before, “Sure then I’m here! Digging for apples, yer honour!”",
+        "“Digging for apples, indeed!” said the Rabbit angrily. “Here! Come and help me out of this!”"
+      ],
+      "answer": "The Rabbit's companion is named Pat. When the Rabbit calls for him, Pat claims he is 'Digging for apples.'"
+    },
+    {
+      "question": "After escaping the Rabbit's house, Alice plays with a puppy. How does she rationalize this game, and what does she compare the puppy to?",
+      "reference_points": [
+        "then Alice, thinking it was very like having a game of play with a cart-horse, and expecting every moment to be trampled under its feet, ran round the thistle again;"
+      ],
+      "answer": "Alice rationalizes the game as being 'very like having a game of play with a cart-horse,' and she is constantly afraid of being trampled under its enormous feet."
+    },
+    {
+      "question": "What are the two distinct liveried footmen described as resembling, and what is the precise message on the letter one delivers?",
+      "reference_points": [
+        "suddenly a footman in livery came running out of the wood—(she considered him to be a footman because he was in livery: otherwise, judging by his face only, she would have called him a fish)—and rapped loudly at the door with his knuckles.",
+        "It was opened by another footman in livery, with a round face, and large eyes like a frog;",
+        "The Fish-Footman began by producing from under his arm a great letter, nearly as large as himself, and this he handed over to the other, saying, in a solemn tone, “For the Duchess. An invitation from the Queen to play croquet.”"
+      ],
+      "answer": "The first footman resembled a fish, and the second resembled a frog. The precise message on the letter was, \"For the Duchess. An invitation from the Queen to play croquet.\""
+    },
+    {
+      "question": "What is the Duchess's two-verse lullaby, and what physical action accompanies the second verse?",
+      "reference_points": [
+        "“Speak roughly to your little boy, And beat him when he sneezes: He only does it to annoy, Because he knows it teases.”",
+        "While the Duchess sang the second verse of the song, she kept tossing the baby violently up and down, and the poor little thing howled so, that Alice could hardly hear the words:—",
+        "“I speak severely to my boy, I beat him when he sneezes; For he can thoroughly enjoy The pepper when he pleases!”"
+      ],
+      "answer": "The lullaby is: \"Speak roughly to your little boy, And beat him when he sneezes: He only does it to annoy, Because he knows it teases.\" and \"I speak severely to my boy, I beat him when he sneezes; For he can thoroughly enjoy The pepper when he pleases!\" While singing the second verse, the Duchess keeps tossing the baby violently up and down."
+    },
+    {
+      "question": "What is the precise, two-part physical technique Alice devises to prevent the pig-baby from \"undoing itself\"?",
+      "reference_points": [
+        "As soon as she had made out the proper way of nursing it, (which was to twist it up into a sort of knot, and then keep tight hold of its right ear and left foot, so as to prevent its undoing itself,) she carried it out into the open air."
+      ],
+      "answer": "Alice's technique for nursing the pig-baby was to first twist it up into a sort of knot, and then keep a tight hold of its right ear and left foot simultaneously."
+    },
+    {
+      "question": "What is the Hatter's stated reason for his watch being two days wrong, and what implement does he blame the March Hare for using?",
+      "reference_points": [
+        "Alice considered a little, and then said “The fourth.”",
+        "“Two days wrong!” sighed the Hatter. “I told you butter wouldn’t suit the works!” he added looking angrily at the March Hare.",
+        "“Yes, but some crumbs must have got in as well,” the Hatter grumbled: “you shouldn’t have put it in with the bread-knife.”"
+      ],
+      "answer": "The Hatter claims his watch, which shows the day of the month, is two days wrong because the March Hare put butter in the works. He further complains that the March Hare should not have used a bread-knife, as it introduced crumbs as well."
+    },
+    {
+      "question": "In the Dormouse's story, what is the ailment of the three sisters, and what is the stated cause of their illness?",
+      "reference_points": [
+        "“They lived on treacle,” said the Dormouse, after thinking a minute or two.",
+        "“They couldn’t have done that, you know,” Alice gently remarked; “they’d have been ill.”",
+        "“So they were,” said the Dormouse; “_very_ ill.”",
+        "The Dormouse again took a minute or two to think about it, and then said, “It was a treacle-well.”"
+      ],
+      "answer": "The three sisters in the story were 'very ill.' The stated cause was that they lived on treacle, which they got from living at the bottom of a 'treacle-well.'"
+    },
+    {
+      "question": "During the Mad Tea-Party, who gets the sole advantage from moving one place on, and why is Alice \"a good deal worse off than before\"?",
+      "reference_points": [
+        "“I want a clean cup,” interrupted the Hatter: “let’s all move one place on.”",
+        "He moved on as he spoke, and the Dormouse followed him: the March Hare moved into the Dormouse’s place, and Alice rather unwillingly took the place of the March Hare. The Hatter was the only one who got any advantage from the change: and Alice was a good deal worse off than before, as the March Hare had just upset the milk-jug into his plate."
+      ],
+      "answer": "The Hatter is the only one who gets an advantage from the change, presumably by getting a clean cup. Alice is worse off because she has to take the March Hare's seat, where he had just upset the milk-jug into his plate."
+    },
+    {
+      "question": "What are the three living components of the Queen's croquet game, serving as mallets, balls, and arches?",
+      "reference_points": [
+        "the balls were live hedgehogs, the mallets live flamingoes, and the soldiers had to double themselves up and to stand on their hands and feet, to make the arches."
+      ],
+      "answer": "The living components of the croquet game are live flamingoes used as mallets, live hedgehogs used as balls, and soldiers doubled over to serve as the arches."
+    },
+    {
+      "question": "What are the three distinct and competing arguments presented by the Executioner, the King, and the Queen regarding the beheading of the Cheshire Cat's bodiless head?",
+      "reference_points": [
+        "The executioner’s argument was, that you couldn’t cut off a head unless there was a body to cut it off from: that he had never had to do such a thing before, and he wasn’t going to begin at _his_ time of life.",
+        "The King’s argument was, that anything that had a head could be beheaded, and that you weren’t to talk nonsense.",
+        "The Queen’s argument was, that if something wasn’t done about it in less than no time she’d have everybody executed, all round."
+      ],
+      "answer": "The Executioner argued that you cannot behead something without a body. The King argued that anything with a head could be beheaded. The Queen argued by issuing a threat: if the problem wasn't solved immediately, she would have everyone executed."
+    },
+    {
+      "question": "What is the Duchess's theory connecting specific foodstuffs and condiments to human temperaments?",
+      "reference_points": [
+        "“Maybe it’s always pepper that makes people hot-tempered,” she went on, very much pleased at having found out a new kind of rule, “and vinegar that makes them sour—and camomile that makes them bitter—and—and barley-sugar and such things that make children sweet-tempered.”"
+      ],
+      "answer": "The Duchess's theory is that pepper makes people hot-tempered, vinegar makes them sour, camomile makes them bitter, and barley-sugar and similar sweets make children sweet-tempered."
+    },
+    {
+      "question": "What is the absurdly long and convoluted \"moral\" the Duchess offers Alice about being and seeming?",
+      "reference_points": [
+        "“I quite agree with you,” said the Duchess; “and the moral of that is—‘Be what you would seem to be’—or if you’d like it put more simply—‘Never imagine yourself not to be otherwise than what it might appear to others that what you were or might have been was not otherwise than what you had been would have appeared to them to be otherwise.’”"
+      ],
+      "answer": "The Duchess's convoluted moral is: \"‘Never imagine yourself not to be otherwise than what it might appear to others that what you were or might have been was not otherwise than what you had been would have appeared to them to be otherwise.’”"
+    },
+    {
+      "question": "According to the Gryphon, what is the reality of the Queen's executions, and what is the truth behind the Mock Turtle's sorrow?",
+      "reference_points": [
+        "“What fun!” said the Gryphon, half to itself, half to Alice.",
+        "“Why, _she_,” said the Gryphon. “It’s all her fancy, that: they never executes nobody, you know. Come on!”",
+        "“What is his sorrow?” she asked the Gryphon, and the Gryphon answered, very nearly in the same words as before, “It’s all his fancy, that: he hasn’t got no sorrow, you know. Come on!”"
+      ],
+      "answer": "The Gryphon reveals that the Queen's executions are 'all her fancy' and that 'they never executes nobody.' Similarly, the Mock Turtle's sorrow is also just his 'fancy,' as 'he hasn’t got no sorrow.'"
+    },
+    {
+      "question": "What are the two \"extra\" subjects taught at the Mock Turtle's school that were not available at Alice's, and what pun explains why the schoolmaster was called \"Tortoise\"?",
+      "reference_points": [
+        "“we went to school in the sea. The master was an old Turtle—we used to call him Tortoise—”",
+        "“Why did you call him Tortoise, if he wasn’t one?” Alice asked.",
+        "“We called him Tortoise because he taught us,” said the Mock Turtle angrily: “really you are very dull!”",
+        "“Ah! then yours wasn’t a really good school,” said the Mock Turtle in a tone of great relief. “Now at _ours_ they had at the end of the bill, ‘French, music, _and washing_—extra.’”"
+      ],
+      "answer": "The two extra subjects were French and, most notably, 'washing.' The schoolmaster was called Tortoise as a pun on the phrase 'he taught us.'"
+    },
+    {
+      "question": "What is the Gryphon's convoluted, five-step explanation for why whitings have their tails in their mouths?",
+      "reference_points": [
+        "“The reason is,” said the Gryphon, “that they _would_ go with the lobsters to the dance. So they got thrown out to sea. So they had to fall a long way. So they got their tails fast in their mouths. So they couldn’t get them out again. That’s all.”"
+      ],
+      "answer": "The Gryphon's five-step explanation is: 1) They insisted on going to the dance with the lobsters. 2) They were thrown out to sea as a result. 3) They had a long way to fall. 4) This caused them to get their tails stuck in their mouths. 5) They could not get them out again."
+    },
+    {
+      "question": "What two puns does the Gryphon make about the composition and care of undersea footwear?",
+      "reference_points": [
+        "“_It does the boots and shoes_,” the Gryphon replied very solemnly.",
+        "“Boots and shoes under the sea,” the Gryphon went on in a deep voice, “are done with a whiting. Now you know.”",
+        "“And what are they made of?” Alice asked in a tone of great curiosity.",
+        "“Soles and eels, of course,” the Gryphon replied rather impatiently: “any shrimp could have told you that.”"
+      ],
+      "answer": "The Gryphon's two puns are that shoes are polished with 'a whiting' (a fish, instead of shoe blacking/whitening) and that they are made of 'Soles and eels' (fish, instead of shoe soles and heels)."
+    },
+    {
+      "question": "What are the first four lines of the parodied poem Alice recites instead of \"'Tis the voice of the sluggard\"?",
+      "reference_points": [
+        "“Stand up and repeat ‘’_Tis the voice of the sluggard_,’” said the Gryphon.",
+        "However, she got up, and began to repeat it, but her head was so full of the Lobster Quadrille, that she hardly knew what she was saying, and the words came very queer indeed:—",
+        "“’Tis the voice of the Lobster; I heard him declare, / “You have baked me too brown, I must sugar my hair.” / As a duck with its eyelids, so he with his nose / Trims his belt and his buttons, and turns out his toes.”"
+      ],
+      "answer": "Instead of the correct poem, Alice recites: “’Tis the voice of the Lobster; I heard him declare, / “You have baked me too brown, I must sugar my hair.” / As a duck with its eyelids, so he with his nose / Trims his belt and his buttons, and turns out his toes.”"
+    },
+    {
+      "question": "What is the physical appearance of the King of Hearts at the trial, which Alice finds uncomfortable and unbecoming?",
+      "reference_points": [
+        "“That’s the judge,” she said to herself, “because of his great wig.”",
+        "The judge, by the way, was the King; and as he wore his crown over the wig, (look at the frontispiece if you want to see how he did it,) he did not look at all comfortable, and it was certainly not becoming."
+      ],
+      "answer": "The King, serving as judge, was wearing his crown over his great wig, an arrangement that looked very uncomfortable and was not at all becoming."
+    },
+    {
+      "question": "What is the name of the juror whose pencil Alice steals, and what method is he forced to use for writing afterwards?",
+      "reference_points": [
+        "One of the jurors had a pencil that squeaked. This of course, Alice could _not_ stand, and she went round the court and got behind him, and very soon found an opportunity of taking it away.",
+        "She did it so quickly that the poor little juror (it was Bill, the Lizard) could not make out at all what had become of it; so, after hunting all about for it, he was obliged to write with one finger for the rest of the day; and this was of very little use, as it left no mark on the slate."
+      ],
+      "answer": "The juror is Bill, the Lizard. After Alice steals his squeaking pencil, he is forced to write with one finger, which leaves no mark on his slate."
+    },
+    {
+      "question": "According to the Hatter's testimony, what three conflicting dates for the start of the tea party are provided by himself, the March Hare, and the Dormouse?",
+      "reference_points": [
+        "“When did you begin?” The Hatter looked at the March Hare, who had followed him into the court, arm-in-arm with the Dormouse. “Fourteenth of March, I _think_ it was,” he said.",
+        "“Fifteenth,” said the March Hare.",
+        "“Sixteenth,” added the Dormouse."
+      ],
+      "answer": "The Hatter claims the tea party began on the fourteenth of March, the March Hare corrects him saying it was the fifteenth, and the Dormouse adds that it was the sixteenth."
+    },
+    {
+      "question": "Describe the exact procedure used by the court officers to \"suppress\" the cheering guinea-pigs.",
+      "reference_points": [
+        "Here one of the guinea-pigs cheered, and was immediately suppressed by the officers of the court. (As that is rather a hard word, I will just explain to you how it was done. They had a large canvas bag, which tied up at the mouth with strings: into this they slipped the guinea-pig, head first, and then sat upon it.)"
+      ],
+      "answer": "To suppress a guinea-pig, the court officers use a large canvas bag with strings at the mouth. They slip the guinea-pig into the bag head first, tie it shut, and then sit on it."
+    },
+    {
+      "question": "What specific evidence does the White Rabbit present that seems to incriminate the Knave, and what are the two \"queerest\" things about this evidence?",
+      "reference_points": [
+        "“this paper has just been picked up.”",
+        "“It isn’t a letter, after all: it’s a set of verses.”",
+        "“Are they in the prisoner’s handwriting?” asked another of the jurymen.",
+        "“No, they’re not,” said the White Rabbit, “and that’s the queerest thing about it.”",
+        "“He must have imitated somebody else’s hand,” said the King.",
+        "“Please your Majesty,” said the Knave, “I didn’t write it, and they can’t prove I did: there’s no name signed at the end.”"
+      ],
+      "answer": "The evidence is a set of verses found on a piece of paper. The two queerest things about it are that the verses are not in the prisoner's (the Knave's) handwriting, and that there is no name signed at the end."
+    },
+    {
+      "question": "What is the King's flawed, two-part interpretation of the line \"I gave her one, they gave him two\" from the anonymous poem?",
+      "reference_points": [
+        "“All right, so far,” said the King, and he went on muttering over the verses to himself: ‘_We know it to be true_—’ that’s the jury, of course—‘_I gave her one, they gave him two_—’ why, that must be what he did with the tarts, you know—”",
+        "“But, it goes on ‘_they all returned from him to you_,’” said Alice.",
+        "“Why, there they are!” said the King triumphantly, pointing to the tarts on the table."
+      ],
+      "answer": "The King interprets the line to mean the Knave gave away the tarts. When Alice points out the next line says 'they all returned from him to you,' the King illogically declares this is proven true by the presence of the tarts on the table in the courtroom."
+    },
+    {
+      "question": "What specific phrase in the anonymous poem does the King attempt to use against the Queen, and how does she react?",
+      "reference_points": [
+        "“Then again—‘_before she had this fit_—’ you never had fits, my dear, I think?” he said to the Queen.",
+        "“Never!” said the Queen furiously, throwing an inkstand at the Lizard as she spoke."
+      ],
+      "answer": "The King points to the phrase 'before she had this fit' and asks the Queen if she has ever had fits. The Queen reacts furiously, shouting \"Never!\" and throwing an inkstand at Bill the Lizard."
+    },
+    {
+      "question": "In her sister's concluding dream, what specific real-world farm-yard sounds are imagined to be the counterparts to the Queen's shrill cries and the Mock Turtle's heavy sobs?",
+      "reference_points": [
+        "the rattling teacups would change to tinkling sheep-bells, and the Queen’s shrill cries to the voice of the shepherd boy—",
+        "while the lowing of the cattle in the distance would take the place of the Mock Turtle’s heavy sobs."
+      ],
+      "answer": "In the sister's dream, the Queen's shrill cries are translated back to the voice of a shepherd boy, and the Mock Turtle's heavy sobs become the lowing of cattle in the distance."
+    }
+  ]

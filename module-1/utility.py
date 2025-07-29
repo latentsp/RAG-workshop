@@ -38,27 +38,243 @@ def do_load_document(file_path):
         return None
 
 
-def do_chunk_text(text, chunk_size=500, chunk_overlap=50):
-    """Split text into overlapping chunks for better retrieval."""
-    from langchain.text_splitter import RecursiveCharacterTextSplitter
+def do_chunk_text(text, chunk_size=500, chunk_overlap=50, splitter_type="recursive", **kwargs):
+    """Split text into overlapping chunks using configurable splitter types.
     
-    # Create text splitter
-    text_splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        length_function=len,
-        separators=["\n\n", "\n", ". ", "! ", "? ", " ", ""]
-    )
+    Args:
+        text (str): The text to split into chunks
+        chunk_size (int): Maximum size of each chunk
+        chunk_overlap (int): Number of characters to overlap between chunks
+        splitter_type (str): Type of splitter to use. Options:
+            - "recursive": RecursiveCharacterTextSplitter (default, recommended for general text)
+            - "character": CharacterTextSplitter (simple character-based splitting)
+            - "semantic": SemanticChunker (experimental, splits by semantic similarity)
+            - "token": TokenTextSplitter (splits by tokens)
+            - "html_header": HTMLHeaderTextSplitter (splits HTML by headers)
+            - "html_section": HTMLSectionSplitter (splits HTML by sections)
+            - "markdown": MarkdownHeaderTextSplitter (splits Markdown by headers)
+            - "python": PythonCodeTextSplitter (splits Python code)
+            - "latex": LatexTextSplitter (splits LaTeX documents)
+            - "nltk": NLTKTextSplitter (uses NLTK for sentence splitting)
+            - "spacy": SpacyTextSplitter (uses spaCy for sentence splitting)
+        **kwargs: Additional arguments specific to each splitter type
     
-    # Split the text
-    chunks = text_splitter.split_text(text)
+    Returns:
+        list: List of text chunks
+    """
+    print(f"🔧 Using {splitter_type} text splitter...")
     
-    print(f"✅ Text chunked successfully!")
-    print(f"📊 Number of chunks: {len(chunks)}")
-    print(f"📏 Average chunk size: {sum(len(chunk) for chunk in chunks) / len(chunks):.0f} characters")
-    print(f"\n🔍 First chunk preview:\n{chunks[0][:300]}...")
-    
-    return chunks
+    try:
+        if splitter_type == "recursive":
+            from langchain.text_splitter import RecursiveCharacterTextSplitter
+            
+            # Get custom separators if provided
+            separators = kwargs.get('separators', ["\n\n", "\n", ". ", "! ", "? ", " ", ""])
+            
+            text_splitter = RecursiveCharacterTextSplitter(
+                chunk_size=chunk_size,
+                chunk_overlap=chunk_overlap,
+                length_function=len,
+                separators=separators
+            )
+            
+        elif splitter_type == "character":
+            from langchain.text_splitter import CharacterTextSplitter
+            
+            separator = kwargs.get('separator', '\n\n')
+            
+            text_splitter = CharacterTextSplitter(
+                separator=separator,
+                chunk_size=chunk_size,
+                chunk_overlap=chunk_overlap,
+                length_function=len
+            )
+            
+        elif splitter_type == "semantic":
+            try:
+                from langchain_experimental.text_splitter import SemanticChunker
+                from langchain_openai import OpenAIEmbeddings
+                
+                embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
+                breakpoint_threshold_type = kwargs.get('breakpoint_threshold_type', 'percentile')
+                
+                text_splitter = SemanticChunker(
+                    embeddings=embeddings,
+                    breakpoint_threshold_type=breakpoint_threshold_type
+                )
+                
+            except ImportError:
+                print("❌ SemanticChunker requires langchain-experimental. Installing...")
+                import subprocess
+                subprocess.run(["pip", "install", "langchain-experimental"], check=True)
+                from langchain_experimental.text_splitter import SemanticChunker
+                from langchain_openai import OpenAIEmbeddings
+                
+                embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
+                breakpoint_threshold_type = kwargs.get('breakpoint_threshold_type', 'percentile')
+                
+                text_splitter = SemanticChunker(
+                    embeddings=embeddings,
+                    breakpoint_threshold_type=breakpoint_threshold_type
+                )
+                
+        elif splitter_type == "token":
+            from langchain.text_splitter import TokenTextSplitter
+            
+            encoding_name = kwargs.get('encoding_name', 'gpt2')
+            
+            text_splitter = TokenTextSplitter(
+                encoding_name=encoding_name,
+                chunk_size=chunk_size,
+                chunk_overlap=chunk_overlap
+            )
+            
+        elif splitter_type == "html_header":
+            from langchain.text_splitter import HTMLHeaderTextSplitter
+            
+            headers_to_split_on = kwargs.get('headers_to_split_on', [
+                ("h1", "Header 1"),
+                ("h2", "Header 2"),
+                ("h3", "Header 3"),
+            ])
+            
+            text_splitter = HTMLHeaderTextSplitter(
+                headers_to_split_on=headers_to_split_on
+            )
+            
+        elif splitter_type == "html_section":
+            from langchain.text_splitter import HTMLSectionSplitter
+            
+            headers_to_split_on = kwargs.get('headers_to_split_on', [
+                ("h1", "Header 1"),
+                ("h2", "Header 2"),
+            ])
+            
+            text_splitter = HTMLSectionSplitter(
+                headers_to_split_on=headers_to_split_on
+            )
+            
+        elif splitter_type == "markdown":
+            from langchain.text_splitter import MarkdownHeaderTextSplitter
+            
+            headers_to_split_on = kwargs.get('headers_to_split_on', [
+                ("#", "Header 1"),
+                ("##", "Header 2"),
+                ("###", "Header 3"),
+            ])
+            
+            text_splitter = MarkdownHeaderTextSplitter(
+                headers_to_split_on=headers_to_split_on
+            )
+            
+        elif splitter_type == "python":
+            from langchain.text_splitter import PythonCodeTextSplitter
+            
+            text_splitter = PythonCodeTextSplitter(
+                chunk_size=chunk_size,
+                chunk_overlap=chunk_overlap
+            )
+            
+        elif splitter_type == "latex":
+            from langchain.text_splitter import LatexTextSplitter
+            
+            text_splitter = LatexTextSplitter(
+                chunk_size=chunk_size,
+                chunk_overlap=chunk_overlap
+            )
+            
+        elif splitter_type == "nltk":
+            try:
+                from langchain.text_splitter import NLTKTextSplitter
+                
+                text_splitter = NLTKTextSplitter(
+                    chunk_size=chunk_size,
+                    chunk_overlap=chunk_overlap
+                )
+                
+            except ImportError:
+                print("❌ NLTKTextSplitter requires nltk. Installing...")
+                import subprocess
+                subprocess.run(["pip", "install", "nltk"], check=True)
+                from langchain.text_splitter import NLTKTextSplitter
+                
+                text_splitter = NLTKTextSplitter(
+                    chunk_size=chunk_size,
+                    chunk_overlap=chunk_overlap
+                )
+                
+        elif splitter_type == "spacy":
+            try:
+                from langchain.text_splitter import SpacyTextSplitter
+                
+                pipeline = kwargs.get('pipeline', 'en_core_web_sm')
+                
+                text_splitter = SpacyTextSplitter(
+                    pipeline=pipeline,
+                    chunk_size=chunk_size,
+                    chunk_overlap=chunk_overlap
+                )
+                
+            except ImportError:
+                print("❌ SpacyTextSplitter requires spacy. Installing...")
+                import subprocess
+                subprocess.run(["pip", "install", "spacy"], check=True)
+                from langchain.text_splitter import SpacyTextSplitter
+                
+                pipeline = kwargs.get('pipeline', 'en_core_web_sm')
+                
+                text_splitter = SpacyTextSplitter(
+                    pipeline=pipeline,
+                    chunk_size=chunk_size,
+                    chunk_overlap=chunk_overlap
+                )
+                
+        else:
+            raise ValueError(f"❌ Unknown splitter_type: {splitter_type}. "
+                           f"Available options: recursive, character, semantic, token, "
+                           f"html_header, html_section, markdown, python, latex, nltk, spacy")
+        
+        # Split the text
+        if splitter_type in ["html_header", "html_section", "markdown"]:
+            # These splitters work differently and return Document objects
+            chunks = text_splitter.split_text(text)
+            if chunks and hasattr(chunks[0], 'page_content'):
+                chunks = [doc.page_content for doc in chunks]
+        else:
+            chunks = text_splitter.split_text(text)
+        
+        print(f"✅ Text chunked successfully with {splitter_type} splitter!")
+        print(f"📊 Number of chunks: {len(chunks)}")
+        
+        if chunks:
+            avg_chunk_size = sum(len(chunk) for chunk in chunks) / len(chunks)
+            print(f"📏 Average chunk size: {avg_chunk_size:.0f} characters")
+            print(f"\n🔍 First chunk preview ({splitter_type} splitter):\n{chunks[0][:300]}...")
+        
+        return chunks
+        
+    except Exception as e:
+        print(f"❌ Error with {splitter_type} splitter: {e}")
+        print("🔄 Falling back to recursive character splitter...")
+        
+        # Fallback to recursive splitter
+        from langchain.text_splitter import RecursiveCharacterTextSplitter
+        
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=chunk_size,
+            chunk_overlap=chunk_overlap,
+            length_function=len,
+            separators=["\n\n", "\n", ". ", "! ", "? ", " ", ""]
+        )
+        
+        chunks = text_splitter.split_text(text)
+        
+        print(f"✅ Text chunked successfully with fallback recursive splitter!")
+        print(f"📊 Number of chunks: {len(chunks)}")
+        print(f"📏 Average chunk size: {sum(len(chunk) for chunk in chunks) / len(chunks):.0f} characters")
+        print(f"\n🔍 First chunk preview:\n{chunks[0][:300]}...")
+        
+        return chunks
 
 
 def do_create_vector_store(chunks):
