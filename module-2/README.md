@@ -182,7 +182,7 @@ ANTHROPIC_API_KEY=your_anthropic_key_here  # Optional
 ### Method 1: Run Experiments (Recommended)
 ```bash
 # Run the predefined experiments
-python run_experiment.py
+python run_parameter_comparison_experiment.py
 ```
 
 **Available experiment types in `run_experiment.py`:**
