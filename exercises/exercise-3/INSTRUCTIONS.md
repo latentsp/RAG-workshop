@@ -1,21 +1,12 @@
-## 🚦 Exercise 3: Chat-Based Test Result Categorization System 🤖💬
+🎯 **Objective:** Understanding the different components and focusing on chunking and retrieval strategies 🧩🔍
 
-In this exercise, you'll build an interactive chat system that uses an internal database of existing test results to answer user queries and predict test outcomes. Follow the steps below to implement your system! 🚀
+🏆 **Task: Get the best score!**  
+- ✂️ Change chunking **size** to find optimal size  
+- 🧱 Change chunking **type** to find optimal type  
+- 🔎 Change retrieval **type** to find optimal method  
+- 🎯 Change K to find optimal method  
 
-1. **♻️ Reuse the `chat_categorize_issues.py` file.**
+- 📊 Run accuracy function to evaluate  
+- 🥇 Win the contest!?
 
-2. **💾 Store the `privacy_issues.json` data in a vector database.**
-
-3. **🧑‍💻 When a user submits a query:**
-   - 🔍 Search the vector database for relevant test results that match or closely resemble the requested features.
-
-4. **📝 Construct a prompt for the LLM that includes:**
-   - 📄 The retrieved relevant test results,
-   - 💬 The user's query,
-   - 🏷️ An instruction to categorize the issue as either **Low**, **Medium**, or **High**.
-
-5. **🤖 Invoke the LLM with the constructed prompt.**
-
-6. **📢 Display the categorization result to the user by printing it.**
-
-✨ Good luck, and have fun building your smart categorization system! ✨
+IMPORTANT: you can also follow the #TODO
