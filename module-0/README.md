@@ -59,9 +59,3 @@ result = do_rag_query(vector_store, "Your question here")
 - `do_create_vector_store(chunks)` - Create vector embeddings and store
 - `do_similarity_search(vector_store, query, k=3)` - Find relevant chunks
 - `do_rag_query(vector_store, query, k=3)` - Complete RAG pipeline
-
-## Notes
-
-- Make sure you have a valid OpenAI API key
-- The script uses Chroma as the vector database
-- All functions follow the `do_something()` naming convention as specified 

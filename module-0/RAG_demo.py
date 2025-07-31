@@ -22,23 +22,11 @@ def main():
     """Run a simple RAG demonstration."""
     print("🚀 Starting RAG Demo")
     print("="*50)
-    
-    # Step 1: Load document
-    print("\n📖 Step 1: Loading document...")
+
     document_path = "../alice_in_wonderland_book.txt"
     document_content = do_load_document(document_path)
-    
-    
-    # Step 2: Chunk the text
-    print("\n✂️ Step 2: Chunking text...")
     text_chunks = do_chunk_text(document_content, chunk_size=500, chunk_overlap=50)
-    
-    # Step 3: Create vector store
-    print("\n🗄️ Step 3: Creating vector store...")
     vector_store = do_create_vector_store(text_chunks)
-    
-    # Step 4: Run sample queries
-    print("\n🔍 Step 4: Running sample RAG queries...")
     
     sample_queries = [
         "What did Alice find when she fell down the rabbit hole?",
