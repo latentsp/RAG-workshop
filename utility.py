@@ -62,6 +62,20 @@ def do_chunk_text(text, chunk_size=500, chunk_overlap=50, splitter_type="recursi
     Returns:
         list: List of text chunks
     """
+    # Validate input text
+    if text is None:
+        print("❌ Error: Cannot chunk text - input text is None")
+        print("💡 This usually means the document failed to load. Check the file path and permissions.")
+        return []
+    
+    if not isinstance(text, str):
+        print(f"❌ Error: Expected string input, got {type(text)}")
+        return []
+    
+    if len(text.strip()) == 0:
+        print("⚠️ Warning: Input text is empty")
+        return []
+    
     print(f"🔧 Using {splitter_type} text splitter...")
     
     try:

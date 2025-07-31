@@ -14,8 +14,8 @@ first without any context (pure LLM), then with proper book context via RAG.
 import sys
 import os
 
-# Add module-1 to path to import utility functions
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'module-1'))
+# Add root directory to path to import utility functions
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from utility import (
     do_load_document,

@@ -4,6 +4,12 @@ Examples demonstrating different text splitter types in the RAG system.
 This script shows how to use the enhanced do_chunk_text function with various splitters.
 """
 
+import sys
+import os
+
+# Add root directory to path to import utility functions  
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 from utility import do_load_document, do_chunk_text
 
 def demonstrate_splitters():
@@ -11,7 +17,7 @@ def demonstrate_splitters():
     
     # Load the Alice in Wonderland text
     print("📚 Loading Alice in Wonderland text...")
-    text = do_load_document("alice_in_wonderland_book.txt")
+    text = do_load_document("../alice_in_wonderland_book.txt")
     
     if not text:
         print("❌ Could not load document. Using sample text instead.")

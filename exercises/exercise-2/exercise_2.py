@@ -14,9 +14,8 @@ import os
 import json
 import asyncio
 
-# Add module-1 and module-2 to path to import utility functions
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'module-1'))
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'module-2'))
+# Add root directory to path to import utility functions
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from utility import (
     do_load_document,
@@ -71,7 +70,7 @@ def do_run_with_rag():
     
     # Load and prepare the Alice in Wonderland book
     print("\n📖 Loading Alice in Wonderland...")
-    book_path = os.path.join(os.path.dirname(__file__), '..', 'module-1', 'alice_in_wonderland_book.txt')
+    book_path = os.path.join(os.path.dirname(__file__), '..', '..', 'alice_in_wonderland_book.txt')
     document_content = do_load_document(book_path)
     
     if not document_content:

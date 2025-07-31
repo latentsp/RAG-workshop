@@ -23,109 +23,42 @@ def test_splitter_function():
     would be worth the trouble of getting up and picking the daisies, when suddenly 
     a White Rabbit with pink eyes ran close by her.
     """
-    
-    try:
-        # Import the function
-        from utility import do_chunk_text
-        
-        print("✅ Successfully imported do_chunk_text function")
-        
-        # Test 1: Basic recursive splitter (default)
-        print("\n📝 Test 1: Basic Recursive Splitter")
-        chunks = do_chunk_text(sample_text, chunk_size=200, chunk_overlap=20)
-        print(f"✅ Generated {len(chunks)} chunks")
-        
-        # Test 2: Try character splitter
-        print("\n📝 Test 2: Character Splitter")
-        try:
-            chunks_char = do_chunk_text(sample_text, chunk_size=200, chunk_overlap=20, splitter_type="character")
-            print(f"✅ Character splitter generated {len(chunks_char)} chunks")
-        except Exception as e:
-            print(f"⚠️ Character splitter failed: {e}")
-        
-        # Test 3: Custom separators
-        print("\n📝 Test 3: Custom Separators")
-        try:
-            chunks_custom = do_chunk_text(
-                sample_text, 
-                chunk_size=150, 
-                chunk_overlap=15, 
-                splitter_type="recursive",
-                separators=["\n\n", ".", "!", "?", " "]
-            )
-            print(f"✅ Custom separators generated {len(chunks_custom)} chunks")
-        except Exception as e:
-            print(f"⚠️ Custom separators failed: {e}")
-        
-        print("\n🎉 Basic tests completed successfully!")
-        return True
-        
-    except ImportError as e:
-        print(f"❌ Import error: {e}")
-        print("\n💡 To set up the environment:")
-        print("1. Create a virtual environment: python3 -m venv venv")
-        print("2. Activate it: source venv/bin/activate")
-        print("3. Install requirements: pip install -r ../requirements.txt")
-        print("4. Add python-dotenv: pip install python-dotenv")
-        return False
-        
-    except Exception as e:
-        print(f"❌ Unexpected error: {e}")
-        return False
 
+    # Import the function
+    import sys
+    import os
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+    from utility import do_chunk_text
+    
+    
+    # Test 1: Basic recursive splitter (default)
+    print("\n📝 Test 1: Basic Recursive Splitter")
+    chunks = do_chunk_text(sample_text, chunk_size=200, chunk_overlap=20)
+    print(f"✅ Recursive Spillter Generated {len(chunks)} chunks")
+    
+    # Test 2: Try character splitter
+    print("\n📝 Test 2: Character Splitter")
+    chunks_char = do_chunk_text(sample_text, chunk_size=200, chunk_overlap=20, splitter_type="character")
+    print(f"✅ Character splitter generated {len(chunks_char)} chunks")
 
-def check_dependencies():
-    """Check if required dependencies are available."""
-    
-    print("🔍 Checking Dependencies")
-    print("=" * 30)
-    
-    required_packages = [
-        "langchain",
-        "langchain_openai", 
-        "langchain_community",
-        "dotenv"
-    ]
-    
-    available = []
-    missing = []
-    
-    for package in required_packages:
-        try:
-            __import__(package.replace("_", ".") if "_" in package else package)
-            available.append(package)
-            print(f"✅ {package}")
-        except ImportError:
-            missing.append(package)
-            print(f"❌ {package}")
-    
-    print(f"\n📊 Summary: {len(available)} available, {len(missing)} missing")
-    
-    if missing:
-        print(f"\n⚠️ Missing packages: {', '.join(missing)}")
-        print("\n💡 Setup Instructions:")
-        print("1. Create virtual environment: python3 -m venv venv")
-        print("2. Activate: source venv/bin/activate")
-        print("3. Install: pip install python-dotenv")
-        print("4. Install: pip install -r ../requirements.txt")
-    
-    return len(missing) == 0
+    # Test 3: Custom separators
+    print("\n📝 Test 3: Custom Separators")
 
+    chunks_custom = do_chunk_text(
+        sample_text, 
+        chunk_size=150, 
+        chunk_overlap=15, 
+        splitter_type="recursive",
+        separators=["\n\n", ".", "!", "?", " "]
+    )
+    print(f"✅ Custom separators generated {len(chunks_custom)} chunks")
 
 if __name__ == "__main__":
     print("🚀 Starting Enhanced Text Splitter Tests\n")
     
-    # Check dependencies first
-    deps_ok = check_dependencies()
-    
     print("\n" + "=" * 60)
-    
-    if deps_ok:
-        # Run tests if dependencies are available
-        test_splitter_function()
-    else:
-        print("⚠️ Cannot run full tests due to missing dependencies")
-        print("Please follow the setup instructions above.")
+
+    test_splitter_function()
     
     print("\n" + "=" * 60)
     print("🏁 Test session completed!") 

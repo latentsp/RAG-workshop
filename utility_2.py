@@ -685,7 +685,7 @@ def do_analyze_results(comparison_results):
 
 
 # Example usage functions
-def do_run_parameter_study(document_path="../module-1/alice_in_wonderland_book.txt", 
+def do_run_parameter_study(document_path="../alice_in_wonderland_book.txt", 
                           chunk_sizes=[200, 500, 1000, 1500, 2000],
                           chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive",
                           questions_file="test_questions.json", max_questions=None, 
@@ -720,7 +720,7 @@ def do_run_parameter_study(document_path="../module-1/alice_in_wonderland_book.t
 
 
 # Backward compatibility function
-def do_run_chunk_size_study(document_path="../module-1/alice_in_wonderland_book.txt", 
+def do_run_chunk_size_study(document_path="alice_in_wonderland_book.txt", 
                            chunk_sizes=[200, 500, 1000, 1500, 2000],
                            chunk_overlap=50, k=3, embedder_type="openai", chunker_type="recursive"):
     """Run a complete chunk size study on the specified document (backward compatibility)."""
@@ -728,7 +728,7 @@ def do_run_chunk_size_study(document_path="../module-1/alice_in_wonderland_book.
                                  max_questions=5)  # Default to first 5 questions for compatibility
 
 
-def do_run_comprehensive_study(document_path="../module-1/alice_in_wonderland_book.txt",
+def do_run_comprehensive_study(document_path="../alice_in_wonderland_book.txt",
                               questions_file="test_questions.json", max_questions=None, 
                               categories=None, difficulties=None):
     """Run a comprehensive parameter study comparing multiple configurations."""
@@ -761,7 +761,7 @@ def do_run_comprehensive_study(document_path="../module-1/alice_in_wonderland_bo
     return results
 
 
-def do_run_embedder_comparison(document_path="../module-1/alice_in_wonderland_book.txt",
+def do_run_embedder_comparison(document_path="../alice_in_wonderland_book.txt",
                               embedder_types=['openai'], questions_file="test_questions.json", 
                               max_questions=None, categories=None, difficulties=None):
     """Compare different embedder types."""
@@ -801,7 +801,7 @@ def do_run_embedder_comparison(document_path="../module-1/alice_in_wonderland_bo
     return results
 
 
-def do_run_chunker_comparison(document_path="../module-1/alice_in_wonderland_book.txt",
+def do_run_chunker_comparison(document_path="../alice_in_wonderland_book.txt",
                              chunker_types=['recursive', 'character'], questions_file="test_questions.json", 
                              max_questions=None, categories=None, difficulties=None):
     """Compare different chunker types."""

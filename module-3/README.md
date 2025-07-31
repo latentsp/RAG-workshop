@@ -5,7 +5,7 @@ This module focuses on measuring and comparing RAG accuracy with different param
 ## 📁 **File Structure:**
 
 - **`utility-2.py`** - Core utility functions for RAG parameter optimization
-- **`run_experiment.py`** - Experiment runner with predefined studies and custom experiments
+- **`run_parameter_comparison_experiment.py`** - Experiment runner with predefined studies and custom experiments
 - **`test_questions.json`** - External question bank with categories and difficulty levels
 - **`visualize_results.ipynb`** - Jupyter notebook for visualizing experiment results
 - **`README.md`** - This documentation file
@@ -13,17 +13,20 @@ This module focuses on measuring and comparing RAG accuracy with different param
 ## 🚀 **Enhanced Features:**
 
 ### **1. Configurable Parameters:**
+
 - **Chunk sizes**: Any list of sizes to test
 - **Chunk overlap**: Configurable overlap between chunks
 - **k values**: Number of chunks to retrieve
 - **Document path**: Any document can be specified
 
 ### **2. Multiple Embedders:**
+
 - **OpenAI**: Default embeddings (requires `OPENAI_API_KEY`)
 - **Anthropic**: Anthropic embeddings (requires `ANTHROPIC_API_KEY`)
 - **HuggingFace**: Free sentence transformers
 
 ### **3. Various Chunking Strategies:**
+
 - **Recursive**: RecursiveCharacterTextSplitter (default)
 - **Semantic**: SemanticChunker (context-aware splitting)
 - **Character**: Simple character-based splitting
@@ -58,6 +61,7 @@ results = do_run_comprehensive_study()
 ```
 
 ### **5. External Question Bank:**
+
 - **JSON-based question storage** for easy customization
 - **Question filtering by category** (character, plot, setting)
 - **Difficulty-based filtering** (easy, medium, hard)
@@ -65,12 +69,14 @@ results = do_run_comprehensive_study()
 - **Custom question files** for different documents
 
 ### **6. Advanced Analysis:**
+
 - **Parameter impact analysis** showing which factors affect accuracy most
 - **Statistical summaries** with mean, std, best/worst configurations
 - **CSV export** with detailed results
 - **Automated best configuration detection**
 
 ### **7. Key Functions:**
+
 - `do_evaluate_with_params()` - Evaluate with full parameter control
 - `do_compare_rag_parameters()` - Compare different parameter configurations
 - `do_compare_parameters()` - Grid search across parameter combinations
@@ -81,6 +87,7 @@ results = do_run_comprehensive_study()
 - `do_create_chunker()` - Factory for different chunking strategies
 
 **Backward Compatibility:**
+
 - `do_compare_chunk_sizes()` - Calls `do_compare_rag_parameters()`
 - `do_run_chunk_size_study()` - Calls `do_run_parameter_study()`
 
@@ -125,11 +132,13 @@ results = do_evaluate_with_params(
 ## 🛠️ **Installation Requirements:**
 
 ### Required packages:
+
 ```bash
 pip install ragas langchain langchain-openai langchain-community pandas python-dotenv
 ```
 
 ### Optional packages for additional features:
+
 ```bash
 # For Anthropic embeddings
 pip install langchain-anthropic
@@ -151,14 +160,15 @@ python -m spacy download en_core_web_sm
 ## 🔧 **Setup:**
 
 1. Create a `.env` file in your project root:
+
 ```env
 OPENAI_API_KEY=your_openai_key_here
 ANTHROPIC_API_KEY=your_anthropic_key_here  # Optional
 ```
 
 2. Ensure you have the Alice in Wonderland document at `../module-1/alice_in_wonderland_book.txt`
-
 3. (Optional) Customize the question file `test_questions.json`:
+
 ```json
 {
   "document_info": {
@@ -180,12 +190,14 @@ ANTHROPIC_API_KEY=your_anthropic_key_here  # Optional
 ## 🎯 **Quick Start:**
 
 ### Method 1: Run Experiments (Recommended)
+
 ```bash
 # Run the predefined experiments
 python run_parameter_comparison_experiment.py
 ```
 
 **Available experiment types in `run_experiment.py`:**
+
 - **`main()`** - Basic parameter study with analysis
 - **`run_quick_comparison()`** - Quick 3-parameter test
 - **`run_overlap_study()`** - Impact of chunk overlap values
@@ -196,6 +208,7 @@ python run_parameter_comparison_experiment.py
 - **`run_character_questions_study()`** - Test only with character-related questions
 
 ### Method 2: Import and Use Functions
+
 ```python
 import importlib.util
 import sys
@@ -221,6 +234,7 @@ results = utility_2.do_run_parameter_study(
 ## 📈 **Understanding Results:**
 
 The utility will output:
+
 - **Individual accuracy scores** for each question
 - **Average accuracy** across all test questions
 - **Best performing configuration** with highest accuracy
@@ -228,6 +242,7 @@ The utility will output:
 - **CSV exports** for further analysis (saved as `rag_parameter_results_*.csv`)
 
 Example output:
+
 ```
 🏆 Best performing chunk size: 500 (Accuracy: 0.850)
 
@@ -247,9 +262,10 @@ jupyter notebook visualize_results.ipynb
 ```
 
 **The notebook includes:**
-- **Data overview and statistics** 
+
+- **Data overview and statistics**
 - **Accuracy vs chunk size plots** (line and bar charts)
-- **Chunk count correlation analysis** 
+- **Chunk count correlation analysis**
 - **Performance insights and recommendations**
 - **Workshop-ready conclusions with expected patterns**
 
@@ -258,6 +274,7 @@ The visualization automatically loads your CSV results and creates professional 
 ## 🎓 **Workshop Applications:**
 
 This utility demonstrates how different parameters affect RAG accuracy, showing the real impact of:
+
 - **Chunk size optimization** - Finding the sweet spot between context and precision
 - **Overlap strategies** - Balancing information retention with computational cost
 - **Embedder selection** - Comparing different semantic understanding models
@@ -270,9 +287,9 @@ This utility demonstrates how different parameters affect RAG accuracy, showing 
 
 - **Flexibility**: Easy to add new questions without code changes
 - **Categorization**: Test specific aspects (plot, characters, settings)
-- **Difficulty scaling**: Compare performance across complexity levels  
+- **Difficulty scaling**: Compare performance across complexity levels
 - **Reusability**: Share question sets across different experiments
 - **Workshop customization**: Tailor questions to specific learning objectives
 - **Document adaptation**: Create question sets for different source materials
 
-Perfect for teaching RAG optimization concepts with concrete, measurable results! 🎯 
+Perfect for teaching RAG optimization concepts with concrete, measurable results! 🎯

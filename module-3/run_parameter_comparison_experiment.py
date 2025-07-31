@@ -6,6 +6,21 @@ This file runs the RAG parameter optimization experiments using the utility func
 Choose which experiment to run by uncommenting the relevant sections.
 """
 
+import sys
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Get your OpenAI API key from the environment
+openai_api_key = os.getenv("OPENAI_API_KEY")
+if not openai_api_key:
+    raise ValueError("OPENAI_API_KEY not found in environment. Please set it in your .env file.")
+
+# Add root directory to path to import utility functions
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 from utility_2 import *
 
 def main():

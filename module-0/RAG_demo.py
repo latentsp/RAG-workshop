@@ -4,6 +4,12 @@ Simple RAG (Retrieval-Augmented Generation) Demo
 Uses utility functions to demonstrate the complete RAG workflow.
 """
 
+import sys
+import os
+
+# Add root directory to path to import utility functions
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 from utility import (
     do_load_document,
     do_chunk_text,
@@ -19,7 +25,7 @@ def main():
     
     # Step 1: Load document
     print("\n📖 Step 1: Loading document...")
-    document_path = "alice_in_wonderland_book.txt"
+    document_path = "../alice_in_wonderland_book.txt"
     document_content = do_load_document(document_path)
     
     
@@ -46,7 +52,6 @@ def main():
         print("\n")
     
     print("✅ RAG Demo completed successfully!")
-    print("💡 Try modifying the queries or document to experiment further!")
 
 
 if __name__ == "__main__":

@@ -222,3 +222,5 @@ module-6/deployment/docker-compose.yml
 
 # Pickle files
 *.pckl
+
+venv/
