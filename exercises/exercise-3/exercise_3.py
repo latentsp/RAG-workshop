@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Exercise 2: Advanced RAG Evaluation with Hard Questions
+Exercise 3: Advanced RAG Evaluation with Hard Questions
 
 Objectives: 
 - Learn how to optimize RAG parameters
@@ -57,7 +57,7 @@ def do_load_hard_questions():
         return None
 
 
-def do_run_with_rag():
+def do_run_with_rag(chunk_size=750, chunk_overlap=50, splitter_type="semantic", k=3):
     """Run the hard questions with RAG using Alice in Wonderland context and evaluate with RAGAS."""
     print("\n✅ Running Hard Questions with RAG (Alice in Wonderland Context)")
     print("="*80)
@@ -79,13 +79,11 @@ def do_run_with_rag():
     
     # Chunk the text
     print("\n✂️ Chunking the book...")
-    # TODO: fix
-    chunks = 
+    chunks = do_chunk_text(document_content, chunk_size=750, chunk_overlap=50, splitter_type="semantic")
     
     # Create vector store
     print("\n🗄️ Creating vector store...")
-    # TODO: fix
-    vector_store = 
+    vector_store = do_create_vector_store(chunks)
     
     # Run RAG queries
     print(f"\n🔍 Running RAG queries for {len(questions_data)} hard questions...")
@@ -101,7 +99,7 @@ def do_run_with_rag():
         print(f"❓ Question: {question}")
         
         # Get RAG response
-        result = do_rag_query(vector_store, question, k=3)
+        result = do_rag_query(vector_store, question, k)
         
         # Prepare data for RAGAS evaluation
         responses_data.append({
@@ -162,13 +160,48 @@ def main():
     print("and evaluates accuracy using the RAGAS framework with ground truth answers.\n")
 
     # Run RAG evaluation with hard questions
-    results = do_run_with_rag()
+    # Run RAG evaluation with different options for each parameter
+    #TODO: fix array values
+    chunk_sizes = 
+    chunk_overlaps = 
+    splitter_types =
+    k_values = 
+
+    all_results = []
+    for chunk_size in chunk_sizes:
+        for chunk_overlap in chunk_overlaps:
+            for splitter_type in splitter_types:
+                for k in k_values:
+                    print(f"\n🔧 Running with chunk_size={chunk_size}, chunk_overlap={chunk_overlap}, splitter_type={splitter_type}, k={k}")
+                    result = do_run_with_rag(
+                        chunk_size=chunk_size,
+                        chunk_overlap=chunk_overlap,
+                        splitter_type=splitter_type,
+                        k=k
+                    )
+                    if result and result['accuracy_results']:
+                        avg_score = result['accuracy_results']['average_score']
+                        print(f"   ➡️  Average Accuracy: {avg_score:.3f}")
+                        all_results.append({
+                            'chunk_size': chunk_size,
+                            'chunk_overlap': chunk_overlap,
+                            'splitter_type': splitter_type,
+                            'k': k,
+                            'average_score': avg_score
+                        })
+                    else:
+                        print("   ❌ Evaluation failed for this configuration.")
+
+    # Optionally, print a summary of all results
+    print("\n=== SUMMARY OF ALL PARAMETER COMBINATIONS ===")
+    for res in all_results:
+        print(f"chunk_size={res['chunk_size']}, chunk_overlap={res['chunk_overlap']}, splitter_type={res['splitter_type']}, k={res['k']} -> avg_accuracy={res['average_score']:.3f}")
     
     if results and results['accuracy_results']:
         accuracy = results['accuracy_results']['average_score']
         total_questions = results['accuracy_results']['total_questions']
         
-        print(f"\n🎉 Exercise 2 Complete!")
+        print(f"\n🎉 Exercise 3 Complete!")
         print(f"📊 Final Results: {accuracy:.3f} average accuracy on {total_questions} hard questions")
         
         # Provide performance interpretation

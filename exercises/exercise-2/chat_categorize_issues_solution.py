@@ -62,7 +62,7 @@ def do_categorize_user_privacy_issue():
     print(response)
     print("="*50)
 
-    print("✅ RAG Demo completed successfully!")
+    print("✅ RAG Exercise completed successfully!")
 
 
 if __name__ == "__main__":

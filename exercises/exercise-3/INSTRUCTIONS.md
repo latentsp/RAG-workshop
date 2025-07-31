@@ -3,8 +3,8 @@
 🏆 **Task: Get the best score!**  
 - ✂️ Change chunking **size** to find optimal size  
 - 🧱 Change chunking **type** to find optimal type  
-- 🔎 Change retrieval **type** to find optimal method  
-- 🎯 Change K to find optimal method  
+- 🔎 Change k **number** to find optimal size  
+- 🎯 Change embedder (optional - would require importing from huggingface)
 
 - 📊 Run accuracy function to evaluate  
 - 🥇 Win the contest!?

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Exercise 2: Advanced RAG Evaluation with Hard Questions
+Exercise 3: Advanced RAG Evaluation with Hard Questions
 
 Objectives: 
 - Learn how to optimize RAG parameters
@@ -200,7 +200,7 @@ def main():
         accuracy = results['accuracy_results']['average_score']
         total_questions = results['accuracy_results']['total_questions']
         
-        print(f"\n🎉 Exercise 2 Complete!")
+        print(f"\n🎉 Exercise 3 Complete!")
         print(f"📊 Final Results: {accuracy:.3f} average accuracy on {total_questions} hard questions")
         
         # Provide performance interpretation
