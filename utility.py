@@ -17,7 +17,7 @@ def do_invoke_llm(prompt):
 
     llm = ChatOpenAI(openai_api_key=openai_api_key)
     response = llm.invoke([HumanMessage(content=prompt)])
-    print("LLM Response:", response.content)
+    # print("LLM Response:", response.content)
     return response.content
 
 
@@ -26,15 +26,15 @@ def do_load_document(file_path):
     try:
         with open(file_path, 'r', encoding='utf-8') as file:
             content = file.read()
-        print(f"✅ Document loaded successfully!")
-        print(f"📄 Document length: {len(content)} characters")
-        print(f"🔤 First 200 characters:\n{content[:200]}...")
+        # print(f"✅ Document loaded successfully!")
+        # print(f"📄 Document length: {len(content)} characters")
+        # print(f"🔤 First 200 characters:\n{content[:200]}...")
         return content
     except FileNotFoundError:
-        print(f"❌ Error: File '{file_path}' not found.")
+        # print(f"❌ Error: File '{file_path}' not found.")
         return None
     except Exception as e:
-        print(f"❌ Error loading document: {e}")
+        # print(f"❌ Error loading document: {e}")
         return None
 
 
@@ -64,19 +64,19 @@ def do_chunk_text(text, chunk_size=500, chunk_overlap=50, splitter_type="recursi
     """
     # Validate input text
     if text is None:
-        print("❌ Error: Cannot chunk text - input text is None")
-        print("💡 This usually means the document failed to load. Check the file path and permissions.")
+        # print("❌ Error: Cannot chunk text - input text is None")
+        # print("💡 This usually means the document failed to load. Check the file path and permissions.")
         return []
     
     if not isinstance(text, str):
-        print(f"❌ Error: Expected string input, got {type(text)}")
+        # print(f"❌ Error: Expected string input, got {type(text)}")
         return []
     
     if len(text.strip()) == 0:
-        print("⚠️ Warning: Input text is empty")
+        # print("⚠️ Warning: Input text is empty")
         return []
     
-    print(f"🔧 Using {splitter_type} text splitter...")
+    # print(f"🔧 Using {splitter_type} text splitter...")
     
     try:
         if splitter_type == "recursive":
@@ -118,7 +118,7 @@ def do_chunk_text(text, chunk_size=500, chunk_overlap=50, splitter_type="recursi
                 )
                 
             except ImportError:
-                print("❌ SemanticChunker requires langchain-experimental. Installing...")
+                # print("❌ SemanticChunker requires langchain-experimental. Installing...")
                 import subprocess
                 subprocess.run(["pip", "install", "langchain-experimental"], check=True)
                 from langchain_experimental.text_splitter import SemanticChunker
@@ -207,7 +207,7 @@ def do_chunk_text(text, chunk_size=500, chunk_overlap=50, splitter_type="recursi
                 )
                 
             except ImportError:
-                print("❌ NLTKTextSplitter requires nltk. Installing...")
+                # print("❌ NLTKTextSplitter requires nltk. Installing...")
                 import subprocess
                 subprocess.run(["pip", "install", "nltk"], check=True)
                 from langchain.text_splitter import NLTKTextSplitter
@@ -230,7 +230,7 @@ def do_chunk_text(text, chunk_size=500, chunk_overlap=50, splitter_type="recursi
                 )
                 
             except ImportError:
-                print("❌ SpacyTextSplitter requires spacy. Installing...")
+                # print("❌ SpacyTextSplitter requires spacy. Installing...")
                 import subprocess
                 subprocess.run(["pip", "install", "spacy"], check=True)
                 from langchain.text_splitter import SpacyTextSplitter
@@ -244,7 +244,7 @@ def do_chunk_text(text, chunk_size=500, chunk_overlap=50, splitter_type="recursi
                 )
                 
         else:
-            raise ValueError(f"❌ Unknown splitter_type: {splitter_type}. "
+            raise ValueError(f"Unknown splitter_type: {splitter_type}. "
                            f"Available options: recursive, character, semantic, token, "
                            f"html_header, html_section, markdown, python, latex, nltk, spacy")
         
@@ -257,19 +257,19 @@ def do_chunk_text(text, chunk_size=500, chunk_overlap=50, splitter_type="recursi
         else:
             chunks = text_splitter.split_text(text)
         
-        print(f"✅ Text chunked successfully with {splitter_type} splitter!")
-        print(f"📊 Number of chunks: {len(chunks)}")
+        # print(f"✅ Text chunked successfully with {splitter_type} splitter!")
+        # print(f"📊 Number of chunks: {len(chunks)}")
         
         if chunks:
             avg_chunk_size = sum(len(chunk) for chunk in chunks) / len(chunks)
-            print(f"📏 Average chunk size: {avg_chunk_size:.0f} characters")
-            print(f"\n🔍 First chunk preview ({splitter_type} splitter):\n{chunks[0][:300]}...")
+            # print(f"📏 Average chunk size: {avg_chunk_size:.0f} characters")
+            # print(f"\n🔍 First chunk preview ({splitter_type} splitter):\n{chunks[0][:300]}...")
         
         return chunks
         
     except Exception as e:
-        print(f"❌ Error with {splitter_type} splitter: {e}")
-        print("🔄 Falling back to recursive character splitter...")
+        # print(f"❌ Error with {splitter_type} splitter: {e}")
+        # print("🔄 Falling back to recursive character splitter...")
         
         # Fallback to recursive splitter
         from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -283,10 +283,10 @@ def do_chunk_text(text, chunk_size=500, chunk_overlap=50, splitter_type="recursi
         
         chunks = text_splitter.split_text(text)
         
-        print(f"✅ Text chunked successfully with fallback recursive splitter!")
-        print(f"📊 Number of chunks: {len(chunks)}")
-        print(f"📏 Average chunk size: {sum(len(chunk) for chunk in chunks) / len(chunks):.0f} characters")
-        print(f"\n🔍 First chunk preview:\n{chunks[0][:300]}...")
+        # print(f"✅ Text chunked successfully with fallback recursive splitter!")
+        # print(f"📊 Number of chunks: {len(chunks)}")
+        # print(f"📏 Average chunk size: {sum(len(chunk) for chunk in chunks) / len(chunks):.0f} characters")
+        # print(f"\n🔍 First chunk preview:\n{chunks[0][:300]}...")
         
         return chunks
 
@@ -299,34 +299,34 @@ def do_create_vector_store(chunks):
     # Create embeddings model
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     
-    print("🔄 Creating embeddings and vector store...")
-    print("⏳ This may take a moment...")
+    # print("🔄 Creating embeddings and vector store...")
+    # print("⏳ This may take a moment...")
     
     # Create Chroma vector store
     vector_store = Chroma.from_texts(chunks, embeddings)
     
-    print(f"✅ Vector store created successfully!")
-    print(f"🗃️ Stored {len(chunks)} document chunks")
-    print(f"🧮 Each embedding has {len(vector_store.embeddings.embed_query('test'))} dimensions")
+    # print(f"✅ Vector store created successfully!")
+    # print(f"🗃️ Stored {len(chunks)} document chunks")
+    # print(f"🧮 Each embedding has {len(vector_store.embeddings.embed_query('test'))} dimensions")
     
     return vector_store
 
 
 def do_similarity_search(vector_store, query, k=3):
     """Search for the most relevant chunks based on the query."""
-    print(f"🔍 Searching for: '{query}'")
-    print(f"📊 Retrieving top {k} most relevant chunks...\n")
+    # print(f"🔍 Searching for: '{query}'")
+    # print(f"📊 Retrieving top {k} most relevant chunks...\n")
     
     # Perform similarity search
     relevant_docs = vector_store.similarity_search(query, k=k)
     
-    print(f"✅ Found {len(relevant_docs)} relevant chunks:")
-    print("="*80)
+    # print(f"✅ Found {len(relevant_docs)} relevant chunks:")
+    # print("="*80)
     
     for i, doc in enumerate(relevant_docs, 1):
-        print(f"\n🔸 Chunk {i}:")
-        print(f"📝 Content: {doc.page_content[:300]}...")
-        print("-"*60)
+        pass  # print(f"\n🔸 Chunk {i}:")
+        # print(f"📝 Content: {doc.page_content[:300]}...")
+        # print("-"*60)
     
     return relevant_docs
 
@@ -336,21 +336,21 @@ def do_rag_query(vector_store, query, k=3):
     from langchain_openai import ChatOpenAI
     from langchain_core.messages import HumanMessage
     
-    print(f"🎯 RAG Query: '{query}'")
-    print("="*80)
+    # print(f"🎯 RAG Query: '{query}'")
+    # print("="*80)
     
     # Step 1: Retrieve relevant chunks
-    print("🔍 Step 1: Retrieving relevant information...")
+    # print("🔍 Step 1: Retrieving relevant information...")
     relevant_docs = vector_store.similarity_search(query, k=k)
     
     # Combine retrieved content
     context = "\n\n".join([doc.page_content for doc in relevant_docs])
     
-    print(f"✅ Retrieved {len(relevant_docs)} relevant chunks")
-    print(f"📄 Total context length: {len(context)} characters")
+    # print(f"✅ Retrieved {len(relevant_docs)} relevant chunks")
+    # print(f"📄 Total context length: {len(context)} characters")
     
     # Step 2: Generate response using LLM
-    print("\n🤖 Step 2: Generating response...")
+    # print("\n🤖 Step 2: Generating response...")
     
     # Create prompt with context
     prompt = f"""Based on the following context, please answer the question. If the answer is not in the context, say so.
@@ -367,11 +367,11 @@ def do_rag_query(vector_store, query, k=3):
     llm = ChatOpenAI(openai_api_key=openai_api_key, temperature=0)
     response = llm.invoke([HumanMessage(content=prompt)])
     
-    print("✅ Response generated!")
-    print("="*80)
-    print("🔊 RAG Response:")
-    print(response.content)
-    print("="*80)
+    # print("✅ Response generated!")
+    # print("="*80)
+    # print("🔊 RAG Response:")
+    # print(response.content)
+    # print("="*80)
     
     return {
         'query': query,
