@@ -5,7 +5,9 @@ Choose a **classification problem** from your everyday work that would benefit f
 ---
 
 ### 🤔 Why Use RAG for Classification?
-RAG can supercharge classification tasks by providing relevant context and improving accuracy. Here are some example problems:
+RAG can supercharge classification tasks by providing relevant context and improving accuracy. 
+
+Here are some example of everyday work problems that could benefit from RAG:
 
 | 🏷️ Problem | 📝 Example Classes |
 |------------|-------------------|
